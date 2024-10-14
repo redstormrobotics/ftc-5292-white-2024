@@ -25,7 +25,7 @@ public class LEDTest extends OpMode {
         neopixels = hardwareMap.get(AdafruitNeoDriver.class, "neoleds");
         neopixels.resetDeviceConfigurationForOpMode();
         neopixels.setNumberOfPixels(NUM_PIXELS);
-        neopixels.fill("#111111");
+        neopixels.fill("#220011");
         neopixels.show();
         timer.reset();
         hueGap = 360 / NUM_PIXELS;
