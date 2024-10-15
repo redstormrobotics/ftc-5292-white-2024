@@ -43,9 +43,42 @@ public class Arm {
             return false;
         }
     }
-    public Action intakeIn(){
-        return new ArmPickUp();
+    public Action armIn(){return new ArmPickUp();
     }
+    public class ArmScoring implements Action {
+        @Override
+        public boolean run(@NonNull TelemetryPacket packet){
+            arm.setTargetPosition(1000);
+            arm.setPower(.5);
+            return false;
+        }
+    }
+    public Action armScoring(){return new ArmScoring();
+    }
+
+    public class ArmResting implements Action {
+        @Override
+        public boolean run(@NonNull TelemetryPacket packet){
+            arm.setTargetPosition(0);
+            arm.setPower(0);
+            return false;
+        }
+    }
+    public Action armResting(){return new ArmResting();
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -29,7 +29,9 @@ public final class TestAuto extends LinearOpMode {
         robot = new Robot(hardwareMap);
 
         robot.intake.intakeInit();
-
+        robot.arm.armInit();
+        robot.wrist.wristInit();
+        robot.lift.liftInit();
         waitForStart();
         Action trajectoryActionChosen;
         Action trajToPick;
@@ -48,7 +50,8 @@ public final class TestAuto extends LinearOpMode {
                 new SequentialAction(
                         robot.intake.intakeIn(),
                         trajectoryActionChosen,
-                        trajToPick
+                        trajToPick,
+                        robot.arm.armInit()
                 )
         );
 

@@ -14,8 +14,8 @@ public class Intake {
 
 
     public Intake(HardwareMap hardwareMap){
-        toproller = hardwareMap.get(Servo.class,"Top Roller");
-        bottomroller = hardwareMap.get(Servo.class,"Bottom Roller");
+        toproller = hardwareMap.get(Servo.class,"upper roller");
+        bottomroller = hardwareMap.get(Servo.class,"lower roller");
 
     }
 
@@ -33,11 +33,13 @@ public class Intake {
     public Action intakeInit(){
         return new IntakeInit();
     }
+
+
     public class IntakeIn implements Action {
         @Override
         public boolean run(@NonNull TelemetryPacket packet){
-            toproller.setPosition(.5);
-            bottomroller.setPosition(.5);
+            toproller.setPosition(0.5);
+            bottomroller.setPosition(0.5);
 
             return false;
         }
@@ -45,7 +47,30 @@ public class Intake {
     public Action intakeIn(){
         return new IntakeIn();
     }
+    public class IntakeOut implements Action {
+        @Override
+        public boolean run(@NonNull TelemetryPacket packet){
+            toproller.setPosition(-0.5);
+            bottomroller.setPosition(-0.5);
+
+            return false;
+        }
+    }
+    public Action intakeOut(){
+        return new IntakeOut();
+    }
 
 
+    public class IntakeStop implements Action {
+        @Override
+        public boolean run(@NonNull TelemetryPacket packet){
+            toproller.setPosition(0);
+            bottomroller.setPosition(0);
 
+            return false;
+        }
+    }
+    public Action intakeStop(){
+        return new IntakeStop();
+    }
 }
