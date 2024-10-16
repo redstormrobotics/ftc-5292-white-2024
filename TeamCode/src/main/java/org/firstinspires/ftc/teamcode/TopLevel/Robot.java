@@ -4,9 +4,10 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 
 public class Robot {
 
- public Intake intake;
+
  public Arm arm;
  public Lift lift;
+ public Intake intake;
  public Wrist wrist;
  private HardwareMap hardwareMap;
 
