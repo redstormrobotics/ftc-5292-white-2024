@@ -38,6 +38,7 @@ public final class Park_Auto extends LinearOpMode {
         Action updatePos;
         Action Traj1;
         Action Traj2;
+        Action Traj3;
     Traj1 = drive.actionBuilder(beginPose)
             .splineTo(new Vector2d(86,0),Math.toRadians(90))
 
