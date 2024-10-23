@@ -23,12 +23,11 @@ public class Arm {
     public class ArmInt implements Action{
         @Override
         public boolean run(@NonNull TelemetryPacket packet){
-            arm.setDirection(DcMotorSimple.Direction.FORWARD);
             arm.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
             arm.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+            arm.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
             arm.setTargetPosition(0);
             arm.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-            arm.setPower(0);
             return false;
         }
     }

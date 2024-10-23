@@ -24,17 +24,15 @@ public class Intake {
     public class IntakeInit implements Action{
         @Override
         public boolean run(@NonNull TelemetryPacket packet){
-            bottomroller.setDirection(CRServo.Direction.FORWARD);
-            toproller.setDirection(CRServo.Direction.REVERSE);
+            bottomroller.setDirection(CRServo.Direction.REVERSE);
+            toproller.setDirection(CRServo.Direction.FORWARD);
             toproller.setPower(0);
             bottomroller.setPower(0);
 
             return false;
         }
     }
-    public Action intakeInit(){
-        return new IntakeInit();
-    }
+    public Action intakeInit() { return new IntakeInit();}
 
 
     public class IntakeIn implements Action {

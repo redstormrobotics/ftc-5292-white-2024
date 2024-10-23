@@ -19,9 +19,9 @@ public class Wrist {
     public class WristInit implements Action{
         @Override
         public boolean run(@NonNull TelemetryPacket packet){
-            wrist.setDirection(Servo.Direction.REVERSE);
-            wrist.setPosition(0);
-
+            wrist.setDirection(Servo.Direction.FORWARD);
+            wrist.setPosition(0.5);
+            wrist.scaleRange(0, 1);
             return false;
         }
     }
