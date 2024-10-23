@@ -4,8 +4,9 @@
 <variable id="~LUL9~Z;enziZiH||`!?">orientation</variable>
 <variable id="R`arR3TgNGuz8EatkYr;">speed</variable>
 <variable id="vc]8j=3m6dRdR)X?I=qL">forward</variable>
-<variable id="uJjN|$P.}=4O:6Fa#2s)">angularVelocity</variable>
 <variable id="Q4hyHCk1B#j2xx;t#2+p">Not Pre score</variable>
+<variable id="ZNomO]PQ}FyXT#r+%4Q:">Not travel</variable>
+<variable id="uJjN|$P.}=4O:6Fa#2s)">angularVelocity</variable>
 <variable id="}eCRl2gdKY]w4xD5G3T^">servo2_override</variable>
 <variable id="RpsBTdq*;GR]e$J#n7fs">denominator</variable>
 <variable id="qWPp|r2JOJ2TkJ!:EA5X">strafe</variable>
@@ -92,6 +93,14 @@
 <block type="procedures_callnoreturn" id="]8@S[U~Mutp)DG$(_@Hv">
 <mutation name="Rollers init"/>
 <next>
+<block type="variables_set" id=")9idYyUh+s?V^)@qooH-">
+<field name="VAR" id="ZNomO]PQ}FyXT#r+%4Q:">Not travel</field>
+<value name="VALUE">
+<block type="math_number" id="ahJ5w0gJu10v*;)1%9^_">
+<field name="NUM">0</field>
+</block>
+</value>
+<next>
 <block type="variables_set" id="+R^D}skRN4TvOMQ^GlnO">
 <field name="VAR" id="Q4hyHCk1B#j2xx;t#2+p">Not Pre score</field>
 <value name="VALUE">
@@ -168,8 +177,29 @@
 </block>
 </statement>
 <next>
+<block type="controls_if" id="-2U[cWk0pXWfsl[X)Hz.">
+<value name="IF0">
+<block type="logic_compare" id="k#$2MDL+MqC2P.Llio~=">
+<field name="OP">EQ</field>
+<value name="A">
+<block type="variables_get" id="|PSbbzL0]K.,+b.y9zr.">
+<field name="VAR" id="MX!r@!yh|$0{^bvC1u.2">Auto</field>
+</block>
+</value>
+<value name="B">
+<block type="math_number" id="},O6nT`x`/`Md(q;gBKc">
+<field name="NUM">1</field>
+</block>
+</value>
+</block>
+</value>
+<statement name="DO0">
+<block type="procedures_callnoreturn" id="78QOcf9WW/Hd#~L8_O}3">
+<mutation name="state machine"/>
+</block>
+</statement>
+<next>
 <block type="controls_if" id="?e+b{Qhb%Q3!lYZW0lp4">
-<mutation else="1"/>
 <value name="IF0">
 <block type="logic_compare" id="W]#gbB%B)%Am~Z#eCwlI">
 <field name="OP">EQ</field>
@@ -208,11 +238,6 @@
 </next>
 </block>
 </next>
-</block>
-</statement>
-<statement name="ELSE">
-<block type="procedures_callnoreturn" id="Vz{R4tYt@xgUBkpBB+?F">
-<mutation name="state machine"/>
 </block>
 </statement>
 <next>
@@ -267,6 +292,8 @@
 </block>
 </next>
 </block>
+</next>
+</block>
 </statement>
 </block>
 </next>
@@ -274,6 +301,8 @@
 </next>
 </block>
 </statement>
+</block>
+</next>
 </block>
 </next>
 </block>
@@ -948,9 +977,9 @@
 </value>
 <next>
 <block type="dcMotor_setProperty_Number" id="xy_sz9d0!y`wdEh/oEoj">
-<field name="IDENTIFIER">armAsDcMotor</field>
+<field name="IDENTIFIER">liftAsDcMotor</field>
 <field name="PROP">Power</field>
-<data>{"IDENTIFIER":"arm"}</data>
+<data>{"IDENTIFIER":"lift"}</data>
 <value name="VALUE">
 <shadow type="math_number" id="F]i2r^+6}-P`|AzOa[!r">
 <field name="NUM">0</field>
@@ -1361,7 +1390,7 @@
 <data>{"IDENTIFIER":"upper roller"}</data>
 <value name="VALUE">
 <shadow type="crServo_typedEnum_direction" id="EIIl|rc{J;iL3WoFgnE/">
-<field name="DIRECTION">REVERSE</field>
+<field name="DIRECTION">FORWARD</field>
 </shadow>
 </value>
 <next>
@@ -1480,10 +1509,30 @@
 <block type="controls_if" id="X1ITs!G$*JasA[yU{(z7">
 <mutation elseif="3"/>
 <value name="IF0">
+<block type="logic_operation" id="}qJ2j6[Ragfs)[o*m(Fu">
+<field name="OP">AND</field>
+<value name="A">
 <block type="gamepad_getProperty_Boolean" id="LV.2A%Gk~Y-wn`{t$uh7">
 <field name="IDENTIFIER">gamepad2</field>
 <field name="PROP">A</field>
 <data>{"IDENTIFIER":"gamepad2"}</data>
+</block>
+</value>
+<value name="B">
+<block type="logic_compare" id="i;ayXRzRxyBHtw/JwAQ|">
+<field name="OP">EQ</field>
+<value name="A">
+<block type="variables_get" id="hTsm:4UDTqlRqgT?+(pZ">
+<field name="VAR" id="ZNomO]PQ}FyXT#r+%4Q:">Not travel</field>
+</block>
+</value>
+<value name="B">
+<block type="math_number" id="(/?$u,Xn3Tv-HOB9lbT0">
+<field name="NUM">0</field>
+</block>
+</value>
+</block>
+</value>
 </block>
 </value>
 <statement name="DO0">
@@ -1491,6 +1540,14 @@
 <field name="VAR" id="Q4hyHCk1B#j2xx;t#2+p">Not Pre score</field>
 <value name="VALUE">
 <block type="math_number" id="Trzdn!bLUqIE.Yl]Yw`6">
+<field name="NUM">1</field>
+</block>
+</value>
+<next>
+<block type="variables_set" id="QU6c=IAZK$O!),{Tlv4A">
+<field name="VAR" id="ZNomO]PQ}FyXT#r+%4Q:">Not travel</field>
+<value name="VALUE">
+<block type="math_number" id="fPxOUp/WsPg^I6e;7v++">
 <field name="NUM">1</field>
 </block>
 </value>
@@ -1529,12 +1586,34 @@
 </block>
 </next>
 </block>
+</next>
+</block>
 </statement>
 <value name="IF1">
+<block type="logic_operation" id="VOO~tDgqEwYBlOOb?+C{">
+<field name="OP">AND</field>
+<value name="A">
 <block type="gamepad_getProperty_Boolean" id="~OTtoGdILZZ?lZ.(|kSA">
 <field name="IDENTIFIER">gamepad2</field>
 <field name="PROP">X</field>
 <data>{"IDENTIFIER":"gamepad2"}</data>
+</block>
+</value>
+<value name="B">
+<block type="logic_compare" id="PFmsiMp26mWyT!VbHVux">
+<field name="OP">EQ</field>
+<value name="A">
+<block type="variables_get" id="y[nj,6%9:xn27e(S)GIw">
+<field name="VAR" id="ZNomO]PQ}FyXT#r+%4Q:">Not travel</field>
+</block>
+</value>
+<value name="B">
+<block type="math_number" id="jpKUs)28Zl%1/Bns-dV4">
+<field name="NUM">0</field>
+</block>
+</value>
+</block>
+</value>
 </block>
 </value>
 <statement name="DO1">
@@ -1543,6 +1622,14 @@
 <value name="VALUE">
 <block type="math_number" id="fWpgRgbIv?H8kL=+|rQM">
 <field name="NUM">0</field>
+</block>
+</value>
+<next>
+<block type="variables_set" id=";oT=/dOWT$Zr883g~o+o">
+<field name="VAR" id="ZNomO]PQ}FyXT#r+%4Q:">Not travel</field>
+<value name="VALUE">
+<block type="math_number" id="j5+=?$a)O]^t)7HQM-~0">
+<field name="NUM">1</field>
 </block>
 </value>
 <next>
@@ -1580,6 +1667,8 @@
 </block>
 </next>
 </block>
+</next>
+</block>
 </statement>
 <value name="IF2">
 <block type="gamepad_getProperty_Boolean" id="$l3B76l+7BbsbKRTMi/A">
@@ -1594,6 +1683,14 @@
 <value name="VALUE">
 <block type="math_number" id="7?f7H*r5%[KW$}A|EPn3">
 <field name="NUM">1</field>
+</block>
+</value>
+<next>
+<block type="variables_set" id="=X*z}*{AM*Nz_6TSdc}O">
+<field name="VAR" id="ZNomO]PQ}FyXT#r+%4Q:">Not travel</field>
+<value name="VALUE">
+<block type="math_number" id="C8J}Z;h}xIP4OCF:wYP]">
+<field name="NUM">0</field>
 </block>
 </value>
 <next>
@@ -1620,6 +1717,8 @@
 <field name="NUM">1</field>
 </shadow>
 </value>
+</block>
+</next>
 </block>
 </next>
 </block>
@@ -1660,6 +1759,14 @@
 </block>
 </value>
 <statement name="DO3">
+<block type="variables_set" id="iotxeV~(|F`|FE2eZ^.-">
+<field name="VAR" id="ZNomO]PQ}FyXT#r+%4Q:">Not travel</field>
+<value name="VALUE">
+<block type="math_number" id="BDo06_KTlA1d?~wi$Gm_">
+<field name="NUM">1</field>
+</block>
+</value>
+<next>
 <block type="procedures_callnoreturn" id="q#yV-|l;*xl4bkG}fC@V">
 <mutation name="rollers extake"/>
 <next>
@@ -1674,6 +1781,8 @@
 <field name="NUM">4</field>
 </shadow>
 </value>
+</block>
+</next>
 </block>
 </next>
 </block>
@@ -1721,7 +1830,7 @@
 <data>{"IDENTIFIER":"lift"}</data>
 <value name="VALUE">
 <shadow type="math_number" id="3T,Tb=Zz=AH_`U)+ys)2">
-<field name="NUM">0.2</field>
+<field name="NUM">0.3</field>
 </shadow>
 </value>
 </block>
@@ -1752,7 +1861,7 @@
 <data>{"IDENTIFIER":"lift"}</data>
 <value name="VALUE">
 <shadow type="math_number" id="h1fW(7[[%_xId6Z_s(0.">
-<field name="NUM">3300</field>
+<field name="NUM">6000</field>
 </shadow>
 </value>
 <next>
@@ -1762,7 +1871,7 @@
 <data>{"IDENTIFIER":"lift"}</data>
 <value name="VALUE">
 <shadow type="math_number" id="Q}$Eix5CC=0QWczLCNpU">
-<field name="NUM">0.6</field>
+<field name="NUM">1</field>
 </shadow>
 </value>
 </block>
@@ -1883,35 +1992,7 @@
 </block>
 </statement>
 </block>
-<block type="procedures_defnoreturn" id="CQ0itM_md7{:F|!~7oU!" x="1292" y="933">
-<field name="NAME">lift up</field>
-<comment pinned="false" h="80" w="160">Describe this function...</comment>
-<statement name="STACK">
-<block type="dcMotor_setProperty_Number" id="DqZt?wnd1GmH,[Rr/z%]">
-<field name="IDENTIFIER">armAsDcMotor</field>
-<field name="PROP">TargetPosition</field>
-<data>{"IDENTIFIER":"arm"}</data>
-<value name="VALUE">
-<shadow type="math_number" id="qx,%Uy|t-(T*)%n31-iY">
-<field name="NUM">3300</field>
-</shadow>
-</value>
-<next>
-<block type="dcMotor_setProperty_Number" id="R~gQe17_7Y7$1Kz2-,~H">
-<field name="IDENTIFIER">armAsDcMotor</field>
-<field name="PROP">Power</field>
-<data>{"IDENTIFIER":"arm"}</data>
-<value name="VALUE">
-<shadow type="math_number" id="EpKade1usS;D:M^kZrt?">
-<field name="NUM">0.25</field>
-</shadow>
-</value>
-</block>
-</next>
-</block>
-</statement>
-</block>
-<block type="procedures_defnoreturn" id="l2Aren+OPHPSl#}N`Rel" x="191" y="1023">
+<block type="procedures_defnoreturn" id="l2Aren+OPHPSl#}N`Rel" x="500" y="972">
 <field name="NAME">wrist score</field>
 <comment pinned="false" h="80" w="160">Describe this function...</comment>
 <statement name="STACK">
@@ -1927,7 +2008,35 @@
 </block>
 </statement>
 </block>
-<block type="procedures_defnoreturn" id="}5/7*w]^=3:;hXsl*/In" x="464" y="1032">
+<block type="procedures_defnoreturn" id="CQ0itM_md7{:F|!~7oU!" x="1292" y="933">
+<field name="NAME">lift up</field>
+<comment pinned="false" h="80" w="160">Describe this function...</comment>
+<statement name="STACK">
+<block type="dcMotor_setProperty_Number" id="DqZt?wnd1GmH,[Rr/z%]">
+<field name="IDENTIFIER">armAsDcMotor</field>
+<field name="PROP">TargetPosition</field>
+<data>{"IDENTIFIER":"arm"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="qx,%Uy|t-(T*)%n31-iY">
+<field name="NUM">6000</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_Number" id="R~gQe17_7Y7$1Kz2-,~H">
+<field name="IDENTIFIER">armAsDcMotor</field>
+<field name="PROP">Power</field>
+<data>{"IDENTIFIER":"arm"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="EpKade1usS;D:M^kZrt?">
+<field name="NUM">1</field>
+</shadow>
+</value>
+</block>
+</next>
+</block>
+</statement>
+</block>
+<block type="procedures_defnoreturn" id="}5/7*w]^=3:;hXsl*/In" x="622" y="1070">
 <field name="NAME">Wrist</field>
 <comment pinned="false" h="80" w="160">Describe this function...</comment>
 <statement name="STACK">
@@ -1971,22 +2080,6 @@
 </value>
 </block>
 </statement>
-</block>
-</statement>
-</block>
-<block type="procedures_defnoreturn" id="n=$snmW/#xVIW)FCxyGq" x="178" y="1114">
-<field name="NAME">wrist pickup</field>
-<comment pinned="false" h="80" w="160">Describe this function...</comment>
-<statement name="STACK">
-<block type="servo_setProperty_Number" id="#)u)|0Zvg^2~8R!Tw%|=">
-<field name="IDENTIFIER">wristAsServo</field>
-<field name="PROP">Position</field>
-<data>{"IDENTIFIER":"wrist"}</data>
-<value name="VALUE">
-<shadow type="math_number" id="?ejM7P3p:wNz-_}*j%m=">
-<field name="NUM">0.35</field>
-</shadow>
-</value>
 </block>
 </statement>
 </block>
@@ -2248,25 +2341,21 @@
 </block>
 </statement>
 </block>
-<block type="dcMotor_setProperty_Number" id="79b]X^-9JM9Bm$C=FsT|" x="2715" y="1001">
-<field name="IDENTIFIER">liftAsDcMotor</field>
-<field name="PROP">TargetPosition</field>
-<data>{"IDENTIFIER":"lift"}</data>
+<block type="procedures_defnoreturn" id="n=$snmW/#xVIW)FCxyGq" x="36" y="1209">
+<field name="NAME">wrist pickup</field>
+<comment pinned="false" h="80" w="160">Describe this function...</comment>
+<statement name="STACK">
+<block type="servo_setProperty_Number" id="#)u)|0Zvg^2~8R!Tw%|=">
+<field name="IDENTIFIER">wristAsServo</field>
+<field name="PROP">Position</field>
+<data>{"IDENTIFIER":"wrist"}</data>
 <value name="VALUE">
-<shadow type="math_number" id=")7f)x(jcO1[$5|n]xkYk">
-<field name="NUM">0</field>
+<shadow type="math_number" id="?ejM7P3p:wNz-_}*j%m=">
+<field name="NUM">0.35</field>
 </shadow>
 </value>
 </block>
-<block type="dcMotor_setProperty_Number" id=".mi:~gvf@49m{LQ~[bZ/" x="2743" y="1057">
-<field name="IDENTIFIER">liftAsDcMotor</field>
-<field name="PROP">TargetPosition</field>
-<data>{"IDENTIFIER":"lift"}</data>
-<value name="VALUE">
-<shadow type="math_number" id=",L]H*.A=l^QOYExJ[G}W">
-<field name="NUM">0</field>
-</shadow>
-</value>
+</statement>
 </block>
 <block type="procedures_defnoreturn" id="RN16a@G-H!Nji#n8d7XV" x="1090" y="1244">
 <field name="NAME">lift down</field>
@@ -2288,7 +2377,7 @@
 <data>{"IDENTIFIER":"arm"}</data>
 <value name="VALUE">
 <shadow type="math_number" id="f*!D+0{22@ScI4d*$GhA">
-<field name="NUM">0.2</field>
+<field name="NUM">0.3</field>
 </shadow>
 </value>
 </block>
