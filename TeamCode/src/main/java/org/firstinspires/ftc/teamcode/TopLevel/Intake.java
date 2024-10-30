@@ -38,8 +38,8 @@ public class Intake {
     public class IntakeIn implements Action {
         @Override
         public boolean run(@NonNull TelemetryPacket packet){
-            toproller.setPower(0.5);
-            bottomroller.setPower(0.5);
+            toproller.setPower(1);
+            bottomroller.setPower(1);
 
             return false;
         }
@@ -50,8 +50,8 @@ public class Intake {
     public class IntakeOut implements Action {
         @Override
         public boolean run(@NonNull TelemetryPacket packet){
-            toproller.setPower(-0.5);
-            bottomroller.setPower(-0.5);
+            toproller.setPower(-1);
+            bottomroller.setPower(-1);
 
             return false;
         }

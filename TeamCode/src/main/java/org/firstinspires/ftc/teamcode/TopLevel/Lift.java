@@ -40,7 +40,7 @@ public class Lift {
         @Override
         public boolean run(@NonNull TelemetryPacket packet){
             lift.setTargetPosition(0);
-            lift.setPower(0.3);
+            lift.setPower(0.7);
             return false;
         }
     }
@@ -49,16 +49,45 @@ public class Lift {
     }
 
     public class LiftScoring implements Action {
+        public boolean init = false;
         @Override
         public boolean run(@NonNull TelemetryPacket packet){
-            lift.setTargetPosition(6000);
-            lift.setPower(1);
-            return false;
+            if(!init){
+                lift.setTargetPosition(6000);
+                lift.setPower(1);
+                init = true;
+            }
+            if(lift.isBusy()){
+                return true;
+            }
+            else {
+                return false;
+            }
         }
     }
     public Action liftScoring(){ return new LiftPickUp();}
 
+    public class LiftHome implements Action {
+        public boolean init = false;
+        @Override
+        public boolean run(@NonNull TelemetryPacket packet){
+            if(!init){
+                lift.setTargetPosition(0);
+                lift.setPower(.75);
+                init = true;
+            }
+            if(lift.isBusy()){
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+    }
+    public Action liftHome(){ return new LiftHome();}
+
 }
+
 
 
 

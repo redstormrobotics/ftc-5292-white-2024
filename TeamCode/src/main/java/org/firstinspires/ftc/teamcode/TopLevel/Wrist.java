@@ -31,7 +31,7 @@ public class Wrist {
     public class WristPickup implements Action {
         @Override
         public boolean run(@NonNull TelemetryPacket packet){
-            wrist.setPosition(0);
+            wrist.setPosition(0.25);
 
             return false;
         }
@@ -39,7 +39,17 @@ public class Wrist {
     public Action wristPickup(){
         return new WristPickup();
     }
+    public class WristScoring implements Action {
+        @Override
+        public boolean run(@NonNull TelemetryPacket packet){
+            wrist.setPosition(.88);
 
+            return false;
+        }
+    }
+    public Action wristScoring(){
+        return new WristScoring();
+    }
 
 
 }
