@@ -1,4 +1,6 @@
 package org.firstinspires.ftc.teamcode.TopLevel;
+import static org.firstinspires.ftc.robotcore.external.BlocksOpModeCompanion.telemetry;
+
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
 //import com.acmerobotics.roadrunner.geometry.Pose2d;

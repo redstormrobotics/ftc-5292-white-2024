@@ -42,7 +42,7 @@ public class Arm {
             return false;
         }
     }
-    public Action armIn(){return new ArmPickUp();
+    public Action armPickUp(){return new ArmPickUp();
     }
     public class ArmScoring implements Action {
         public boolean init = false;
@@ -70,7 +70,7 @@ public class Arm {
         public boolean run(@NonNull TelemetryPacket packet){
             if (!init){
                 arm.setTargetPosition(0);
-                arm.setPower(1);
+                arm.setPower(.35);
             }
             if (arm.isBusy()){
                 return true;

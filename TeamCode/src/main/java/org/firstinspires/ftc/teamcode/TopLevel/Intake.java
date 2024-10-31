@@ -48,12 +48,24 @@ public class Intake {
         return new IntakeIn();
     }
     public class IntakeOut implements Action {
+        public boolean init = false;
+        double counter = 0;
         @Override
-        public boolean run(@NonNull TelemetryPacket packet){
-            toproller.setPower(-1);
-            bottomroller.setPower(-1);
 
-            return false;
+        public boolean run(@NonNull TelemetryPacket packet){
+            if(!init){
+                toproller.setPower(-1);
+                bottomroller.setPower(-1);
+                init = true;
+
+            }
+            if (counter < 200000){
+                counter = counter + 1;
+                return true;
+            }
+            else{
+                return false;
+            }
         }
     }
     public Action intakeOut(){

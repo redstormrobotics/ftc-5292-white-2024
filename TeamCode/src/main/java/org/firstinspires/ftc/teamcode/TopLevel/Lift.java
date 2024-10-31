@@ -1,5 +1,7 @@
 package org.firstinspires.ftc.teamcode.TopLevel;
 
+import static org.firstinspires.ftc.robotcore.external.BlocksOpModeCompanion.telemetry;
+
 import androidx.annotation.NonNull;
 
 import com.acmerobotics.dashboard.telemetry.TelemetryPacket;
@@ -41,6 +43,7 @@ public class Lift {
         public boolean run(@NonNull TelemetryPacket packet){
             lift.setTargetPosition(0);
             lift.setPower(0.7);
+           // telemetry.addData("lift", lift.getCurrentPosition());
             return false;
         }
     }
@@ -49,15 +52,15 @@ public class Lift {
     }
 
     public class LiftScoring implements Action {
-        public boolean init = false;
+        public boolean inits = false;
         @Override
         public boolean run(@NonNull TelemetryPacket packet){
-            if(!init){
+            if(!inits){
                 lift.setTargetPosition(6000);
                 lift.setPower(1);
-                init = true;
+                inits = true;
             }
-            if(lift.isBusy()){
+            if(lift.getCurrentPosition() < 5000){
                 return true;
             }
             else {
@@ -65,7 +68,7 @@ public class Lift {
             }
         }
     }
-    public Action liftScoring(){ return new LiftPickUp();}
+    public Action liftScoring(){ return new LiftScoring();}
 
     public class LiftHome implements Action {
         public boolean init = false;
@@ -75,8 +78,9 @@ public class Lift {
                 lift.setTargetPosition(0);
                 lift.setPower(.75);
                 init = true;
+
             }
-            if(lift.isBusy()){
+            if(lift.getCurrentPosition() > 100){
                 return true;
             }
             else {
