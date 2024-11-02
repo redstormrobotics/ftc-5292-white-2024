@@ -18,7 +18,7 @@ import com.acmerobotics.roadrunner.Action;
 
 
 
-@Autonomous(name = "Score_Park" )
+@Autonomous(name = "Score_Park", preselectTeleOp = "White tele-op")
 public final class Score_Park extends LinearOpMode {
     public Robot robot;
 
@@ -27,6 +27,7 @@ public final class Score_Park extends LinearOpMode {
     public void runOpMode() throws InterruptedException {
         Pose2d beginPose = new Pose2d(0, 0, 0);
         Pose2d Pose2 = new Pose2d(-20, -14, Math.toRadians(90));
+        Pose2d Pose3 = new Pose2d(-28, -14, Math.toRadians(90));
         MecanumDrive drive = new MecanumDrive(hardwareMap, beginPose);
         //Pose2d Pose2 = new Pose2d(drive.pose.position.x,drive.pose.position.y,drive.pose.heading.imag);
         // Initialize the robot with the hardwareMap
@@ -61,10 +62,12 @@ public final class Score_Park extends LinearOpMode {
                 .build();
 
         Action Traj3 = drive.actionBuilder(Pose2)
-                .splineToConstantHeading(new Vector2d(-25,-14),Math.toRadians(90))
+                .splineToConstantHeading(new Vector2d(-28,-14),Math.toRadians(90))
                         .build();
 
-
+        Action Traj4 = drive.actionBuilder(Pose3)
+                .splineToConstantHeading(new Vector2d(-20,-14),Math.toRadians(90))
+                .build();
 
 
 
@@ -81,10 +84,12 @@ public final class Score_Park extends LinearOpMode {
                         Traj3,
                         robot.intake.intakeOut(),
                         robot.intake.intakeStop(),
+                        Traj4,
                         robot.arm.armResting(),
                         robot.wrist.wristPickup(),
-                        robot.lift.liftHome()
-                       // Traj2
+                        robot.lift.liftHome(),
+                        robot.wrist.wristScoring(),
+                        Traj2
                 )
         );
     }

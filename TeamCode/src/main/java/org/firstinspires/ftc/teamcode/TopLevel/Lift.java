@@ -56,7 +56,7 @@ public class Lift {
         @Override
         public boolean run(@NonNull TelemetryPacket packet){
             if(!inits){
-                lift.setTargetPosition(6000);
+                lift.setTargetPosition(6400);
                 lift.setPower(1);
                 inits = true;
             }
