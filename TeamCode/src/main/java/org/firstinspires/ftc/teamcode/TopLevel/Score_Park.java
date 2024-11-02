@@ -4,6 +4,7 @@ import static org.firstinspires.ftc.robotcore.external.BlocksOpModeCompanion.tel
 
 import com.acmerobotics.roadrunner.Pose2d;
 import com.acmerobotics.roadrunner.TrajectoryActionBuilder;
+import com.acmerobotics.roadrunner.TranslationalVelConstraint;
 import com.acmerobotics.roadrunner.Vector2d;
 import com.acmerobotics.roadrunner.ftc.Actions;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
@@ -55,9 +56,9 @@ public final class Score_Park extends LinearOpMode {
                 .build();
 
         Action Traj2 = drive.actionBuilder(Pose2)
-                .splineTo(new Vector2d(30,20),Math.toRadians(0))
-                .splineTo(new Vector2d( 60,20),Math.toRadians(0))
-                .splineTo(new Vector2d(86,0),Math.toRadians(0))
+                .splineTo(new Vector2d(30,20),Math.toRadians(0), new TranslationalVelConstraint(30.0))
+                .splineTo(new Vector2d( 60,20),Math.toRadians(0), new TranslationalVelConstraint(30.0))
+                .splineTo(new Vector2d(86,0),Math.toRadians(0),  new TranslationalVelConstraint(30.0))
 
                 .build();
 
