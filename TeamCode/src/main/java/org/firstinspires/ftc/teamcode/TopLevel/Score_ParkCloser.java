@@ -19,8 +19,8 @@ import com.acmerobotics.roadrunner.Action;
 
 
 
-@Autonomous(name = "Score_Park", preselectTeleOp = "White tele-op")
-public final class Score_Park extends LinearOpMode {
+@Autonomous(name = "Score_ParkCloser", preselectTeleOp = "White tele-op")
+public final class Score_ParkCloser extends LinearOpMode {
     public Robot robot;
 
 
@@ -36,16 +36,16 @@ public final class Score_Park extends LinearOpMode {
 
         robot.intake.intakeInit();
         Actions.runBlocking(robot.intake.intakeInit());
-         robot.arm.armInit();
+        robot.arm.armInit();
         Actions.runBlocking(robot.arm.armInit());
         robot.wrist.wristInit();
-         robot.lift.liftInit();
+        robot.lift.liftInit();
         Actions.runBlocking(robot.lift.liftInit());
-         telemetry.addData("Test",8);
+        telemetry.addData("Test",8);
         Actions.runBlocking(robot.wrist.wristInit());
-         telemetry.update();
-         waitForStart();
-         Action traj1;
+        telemetry.update();
+        waitForStart();
+        Action traj1;
 
 
         traj1 = drive.actionBuilder(beginPose)
@@ -58,13 +58,13 @@ public final class Score_Park extends LinearOpMode {
         Action Traj2 = drive.actionBuilder(Pose2)
                 .splineTo(new Vector2d(30,20),Math.toRadians(0), new TranslationalVelConstraint(30.0))
                 .splineTo(new Vector2d( 60,20),Math.toRadians(0), new TranslationalVelConstraint(30.0))
-                .splineTo(new Vector2d(86,0),Math.toRadians(0),  new TranslationalVelConstraint(30.0))
+                .splineTo(new Vector2d(66,0),Math.toRadians(0),  new TranslationalVelConstraint(20.0))
 
                 .build();
 
         Action Traj3 = drive.actionBuilder(Pose2)
                 .splineToConstantHeading(new Vector2d(-30,-14),Math.toRadians(90))
-                        .build();
+                .build();
 
         Action Traj4 = drive.actionBuilder(Pose3)
                 .splineToConstantHeading(new Vector2d(-20,-14),Math.toRadians(90))
@@ -75,7 +75,7 @@ public final class Score_Park extends LinearOpMode {
         Actions.runBlocking(
                 new SequentialAction(
                         traj1,
-                          robot.lift.liftScoring(),
+                        robot.lift.liftScoring(),
                         robot.arm.armScoring(),
                         robot.wrist.wristScoring(),
                         Traj3,

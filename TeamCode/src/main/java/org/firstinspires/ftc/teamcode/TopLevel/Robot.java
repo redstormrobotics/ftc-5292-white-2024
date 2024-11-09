@@ -16,6 +16,7 @@ public class Robot {
  public Lift lift;
  public Intake intake;
  public Wrist wrist;
+ public Lights lights;
  private HardwareMap hardwareMap;
 
  public Robot(HardwareMap hardwareMap){
@@ -24,6 +25,7 @@ public class Robot {
      arm = new Arm(hardwareMap);
      lift = new Lift(hardwareMap);
      wrist = new Wrist(hardwareMap);
+     lights = new Lights(hardwareMap);
 //     public void test(){
 //
 //         sleep(1000);

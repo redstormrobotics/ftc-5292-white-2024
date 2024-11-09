@@ -27,11 +27,14 @@ public final class shortPark_Auto extends LinearOpMode {
         // Initialize the robot with the hardwareMap
         robot = new Robot(hardwareMap);
 
+
         //robot.intake.intakeInit();
        // robot.arm.armInit();
         //robot.wrist.wristInit();
        // robot.lift.liftInit();
+        Actions.runBlocking(robot.lights.lightsInit());
         waitForStart();
+        Actions.runBlocking(robot.lights.lightsWhite());
         Action trajectoryActionChosen;
         Action trajToPick;
         Action updatePos;
