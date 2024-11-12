@@ -2681,24 +2681,6 @@
 </block>
 </statement>
 </block>
-<block type="controls_if" id="~lfNwvE?,yJzF.IOHoXQ" x="83" y="1098">
-<value name="IF0">
-<block type="logic_negate" id=":eTXf}KfYjipDr6*7QuN">
-<value name="BOOL">
-<block type="gamepad_getProperty_Boolean" id="fLyC1t`ZXk.t`RC]hKh[">
-<field name="IDENTIFIER">gamepad1</field>
-<field name="PROP">LeftBumper</field>
-<data>{"IDENTIFIER":"gamepad1"}</data>
-</block>
-</value>
-</block>
-</value>
-<statement name="DO0">
-<block type="procedures_callnoreturn" id="qiMverXW)}j=Phr*rMAj">
-<mutation name="field_orient"/>
-</block>
-</statement>
-</block>
 <block type="procedures_defnoreturn" id="-B}$giL!s+1tV==4Z/B;" x="491" y="1086">
 <field name="NAME">arm pre-pickup</field>
 <comment pinned="false" h="80" w="160">Describe this function...</comment>
@@ -3034,6 +3016,24 @@
 </next>
 </block>
 </next>
+</block>
+</statement>
+</block>
+<block type="controls_if" id="~lfNwvE?,yJzF.IOHoXQ" x="-69" y="1151">
+<value name="IF0">
+<block type="logic_negate" id=":eTXf}KfYjipDr6*7QuN">
+<value name="BOOL">
+<block type="gamepad_getProperty_Boolean" id="fLyC1t`ZXk.t`RC]hKh[">
+<field name="IDENTIFIER">gamepad1</field>
+<field name="PROP">LeftBumper</field>
+<data>{"IDENTIFIER":"gamepad1"}</data>
+</block>
+</value>
+</block>
+</value>
+<statement name="DO0">
+<block type="procedures_callnoreturn" id="qiMverXW)}j=Phr*rMAj">
+<mutation name="field_orient"/>
 </block>
 </statement>
 </block>
