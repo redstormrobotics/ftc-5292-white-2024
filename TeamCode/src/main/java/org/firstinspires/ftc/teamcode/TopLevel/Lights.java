@@ -43,7 +43,7 @@ public class Lights {
 //            colors[i] = Color.HSVToColor(new float[] { , 1.0f, .05f });
 //        }
 //        neopixels.setPixelColors(colors);
-        neopixels.fill("#ff0000");
+        neopixels.fill("#fffffff");
         neopixels.show();
     }
     public Action lightsWhite(){ return new Lights.LightColorWhite();}
@@ -51,6 +51,29 @@ public class Lights {
         @Override
         public boolean run(@NonNull TelemetryPacket packet){
             setWhite();
+            return false;
+        }
+    }
+
+
+
+    public void setRainbow() {
+        int[] colors = new int[NUM_PIXELS];
+        colors[0] = Color.parseColor("#22A500");
+        colors[1] = Color.parseColor("#222200");
+        colors[2] = Color.parseColor("#000000");
+        colors[3] = Color.parseColor("#22A500");
+        colors[4] = Color.parseColor("#000000");
+        colors[5] = Color.parseColor("#22A500");
+        colors[6] = Color.parseColor("#000000");
+        neopixels.setPixelColors(colors);
+        neopixels.show();
+    }
+    public Action lightsRainbow(){ return new Lights.LightColorRainbow();}
+    public class LightColorRainbow implements Action {
+        @Override
+        public boolean run(@NonNull TelemetryPacket packet){
+            setRainbow();
             return false;
         }
     }

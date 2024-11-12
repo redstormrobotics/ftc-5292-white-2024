@@ -33,6 +33,7 @@ public final class shortPark_Auto extends LinearOpMode {
         //robot.wrist.wristInit();
        // robot.lift.liftInit();
         Actions.runBlocking(robot.lights.lightsInit());
+        Actions.runBlocking(robot.lights.lightsRainbow());
         waitForStart();
         Actions.runBlocking(robot.lights.lightsWhite());
         Action trajectoryActionChosen;
