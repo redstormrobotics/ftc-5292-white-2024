@@ -1394,6 +1394,9 @@
 </block>
 </value>
 <next>
+<block type="procedures_callnoreturn" id="k:3|CJz_Ki]l%HRd_eRA">
+<mutation name="arm pre-pickup"/>
+<next>
 <block type="procedures_callnoreturn" id="#9:/VJ[QW..LDGUx6.8]">
 <mutation name="rollers intake"/>
 <next>
@@ -1404,6 +1407,8 @@
 <field name="NUM">0.4</field>
 </block>
 </value>
+</block>
+</next>
 </block>
 </next>
 </block>
@@ -1618,9 +1623,6 @@
 <block type="procedures_callnoreturn" id="c8C1eQ8M?AqxM]{;^`Uz">
 <mutation name="wrist pickup"/>
 <next>
-<block type="procedures_callnoreturn" id="HQj~l{5s,J/*CmiTxR(b">
-<mutation name="arm pre-pickup"/>
-<next>
 <block type="controls_if" id="RF)VJ1O(YTP0e4Z#lFps">
 <mutation elseif="1"/>
 <value name="IF0">
@@ -1629,7 +1631,7 @@
 <value name="A">
 <block type="gamepad_getProperty_Boolean" id="_kcx|:RF+rWS3,z0`4#*">
 <field name="IDENTIFIER">gamepad2</field>
-<field name="PROP">A</field>
+<field name="PROP">X</field>
 <data>{"IDENTIFIER":"gamepad2"}</data>
 </block>
 </value>
@@ -1713,6 +1715,16 @@
 <field name="NUM">1</field>
 </block>
 </value>
+<next>
+<block type="variables_set" id="+XT}.7-pv|MmoUJ@gG{S">
+<field name="VAR" id="a_eE,YjBD_KfUyPJr5AX">pickup</field>
+<value name="VALUE">
+<block type="math_number" id=")}NQ.msYp9zBlU`,Fq,T">
+<field name="NUM">0</field>
+</block>
+</value>
+</block>
+</next>
 </block>
 </next>
 </block>
@@ -1752,8 +1764,6 @@
 <field name="NUM">2</field>
 </block>
 </value>
-</block>
-</next>
 </block>
 </next>
 </block>
@@ -2305,7 +2315,7 @@
 <data>{"IDENTIFIER":"arm"}</data>
 <value name="VALUE">
 <shadow type="math_number" id="@VQ[A,hlqq7VptcDzY;L">
-<field name="NUM">2150</field>
+<field name="NUM">2500</field>
 </shadow>
 </value>
 <next>
@@ -3466,7 +3476,7 @@
 <data>{"IDENTIFIER":"wrist"}</data>
 <value name="VALUE">
 <shadow type="math_number" id="YjJMoajw{eJ%plfe,,E_">
-<field name="NUM">0.09</field>
+<field name="NUM">0</field>
 </shadow>
 </value>
 </block>
