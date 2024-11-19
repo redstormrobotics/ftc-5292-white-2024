@@ -15,11 +15,12 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 public class Lift {
 
     private DcMotor lift;
+    private DcMotor lift2;
 
 
     public Lift(HardwareMap hardwareMap){
         lift = hardwareMap.get(DcMotor.class, "lift");
-
+        lift2 = hardwareMap.get(DcMotor.class, "lift2");
     }
 
     public class LiftInit implements Action{
@@ -38,11 +39,29 @@ public class Lift {
     }
     public Action liftInit(){return new LiftInit();
     }
+    public class LiftInit2 implements Action{
+        @Override
+        public boolean run(@NonNull TelemetryPacket packet){
+
+            lift2.setDirection(DcMotorSimple.Direction.FORWARD);
+            lift2.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+            lift2.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+            lift2.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+            lift2.setTargetPosition(0);
+            lift2.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+            lift2.setPower(0);
+            return false;
+        }
+    }
+    public Action liftInit2(){return new LiftInit();
+    }
     public class LiftPickUp implements Action {
         @Override
         public boolean run(@NonNull TelemetryPacket packet){
             lift.setTargetPosition(0);
             lift.setPower(0.7);
+            lift2.setTargetPosition(0);
+            lift2.setPower(0.7);
            // telemetry.addData("lift", lift.getCurrentPosition());
             return false;
         }
@@ -58,6 +77,8 @@ public class Lift {
             if(!inits){
                 lift.setTargetPosition(6400);
                 lift.setPower(1);
+                lift2.setTargetPosition(6400);
+                lift2.setPower(1);
                 inits = true;
             }
             if(lift.getCurrentPosition() < 5000){
@@ -68,6 +89,9 @@ public class Lift {
             }
         }
     }
+
+
+
     public Action liftScoring(){ return new LiftScoring();}
 
     public class LiftHome implements Action {
@@ -77,6 +101,8 @@ public class Lift {
             if(!init){
                 lift.setTargetPosition(0);
                 lift.setPower(.75);
+                lift2.setTargetPosition(0);
+                lift2.setPower(.75);
                 init = true;
 
             }

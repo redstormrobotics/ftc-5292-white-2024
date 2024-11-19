@@ -1,0 +1,995 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+<block type="procedures_defnoreturn" id="7U|[N~Q66zeg.xCb#/}-" x="-675" y="-40">
+<field name="NAME">Lift init</field>
+<comment pinned="false" h="80" w="160">Describe this function...</comment>
+<statement name="STACK">
+<block type="dcMotor_setProperty_RunMode" id="0OFXr}f!~D;h^iN$xGA#">
+<field name="IDENTIFIER">lift2AsDcMotor</field>
+<field name="PROP">Mode</field>
+<data>{"IDENTIFIER":"lift2"}</data>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_runMode" id="n9)D8C+wQF9WgD7yjDK0">
+<field name="RUN_MODE">STOP_AND_RESET_ENCODER</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_RunMode" id="CT#S]mQ+Qe9Rxg1,{s-|">
+<field name="IDENTIFIER">liftAsDcMotor</field>
+<field name="PROP">Mode</field>
+<data>{"IDENTIFIER":"lift"}</data>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_runMode" id="aL?fGf,Em+)?9)oZ=s8e">
+<field name="RUN_MODE">STOP_AND_RESET_ENCODER</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_Direction" id="t*?#{1}.,r1oTFKnF$5E">
+<field name="IDENTIFIER">liftAsDcMotor</field>
+<field name="PROP">Direction</field>
+<data>{"IDENTIFIER":"lift"}</data>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_direction" id="__/~@]=Mj?7!0mBD*/4_">
+<field name="DIRECTION">FORWARD</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_Direction" id="pYKJie906Q7dfkpib+xI">
+<field name="IDENTIFIER">lift2AsDcMotor</field>
+<field name="PROP">Direction</field>
+<data>{"IDENTIFIER":"lift2"}</data>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_direction" id="nj;E08(Yfxe)iHQ3[nId">
+<field name="DIRECTION">FORWARD</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_ZeroPowerBehavior" id="aO{nrXiUYZ!WAw`*Kt9U">
+<field name="IDENTIFIER">liftAsDcMotor</field>
+<field name="PROP">ZeroPowerBehavior</field>
+<data>{"IDENTIFIER":"lift"}</data>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_zeroPowerBehavior" id="YvsnZtF5eboCFwktsfLg">
+<field name="ZERO_POWER_BEHAVIOR">FLOAT</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_ZeroPowerBehavior" id="bQ60r=?BGV$MjxF7kQL3">
+<field name="IDENTIFIER">lift2AsDcMotor</field>
+<field name="PROP">ZeroPowerBehavior</field>
+<data>{"IDENTIFIER":"lift2"}</data>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_zeroPowerBehavior" id="(l}]vtJZ]levO*K}nu-v">
+<field name="ZERO_POWER_BEHAVIOR">FLOAT</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_RunMode" id="LajU.ANSG4Wzcjuee.U{">
+<field name="IDENTIFIER">liftAsDcMotor</field>
+<field name="PROP">Mode</field>
+<data>{"IDENTIFIER":"lift"}</data>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_runMode" id="cGE_Qv@$D`q3O~p`6iyj">
+<field name="RUN_MODE">RUN_USING_ENCODER</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_RunMode" id="2n`5V,OI_+acW43Yx;kN">
+<field name="IDENTIFIER">lift2AsDcMotor</field>
+<field name="PROP">Mode</field>
+<data>{"IDENTIFIER":"lift2"}</data>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_runMode" id="Y_mYDfrT@gm0dDg04`Er">
+<field name="RUN_MODE">RUN_USING_ENCODER</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_Number" id="C#*xY$)]tZljRjSWQKlF">
+<field name="IDENTIFIER">liftAsDcMotor</field>
+<field name="PROP">TargetPosition</field>
+<data>{"IDENTIFIER":"lift"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="-^0:O0s)^w3!Gg6S;k|~">
+<field name="NUM">0</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_Number" id="`u:uP7P0Fy)^$RoZ.6=g">
+<field name="IDENTIFIER">liftAsDcMotor</field>
+<field name="PROP">TargetPositionTolerance</field>
+<data>{"IDENTIFIER":"lift"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="r(-7AyFNFdY|tbZQUKAi">
+<field name="NUM">45</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_Number" id="3S$}xryQk80EI=Y)@z5W">
+<field name="IDENTIFIER">lift2AsDcMotor</field>
+<field name="PROP">TargetPosition</field>
+<data>{"IDENTIFIER":"lift2"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="1B@MfNEx9IRfcy%Qpa%$">
+<field name="NUM">0</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_Number" id="yZd.sw8}WH?PK_4VBY#0">
+<field name="IDENTIFIER">lift2AsDcMotor</field>
+<field name="PROP">TargetPositionTolerance</field>
+<data>{"IDENTIFIER":"lift2"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="3!Jp0L?{361qfXSt+mGS">
+<field name="NUM">100</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_RunMode" id="4:OHgACs,-cNPm8Oc_R8">
+<field name="IDENTIFIER">liftAsDcMotor</field>
+<field name="PROP">Mode</field>
+<data>{"IDENTIFIER":"lift"}</data>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_runMode" id=",rLode6e2YQ7t5T|sf)$">
+<field name="RUN_MODE">RUN_TO_POSITION</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_RunMode" id="vLi|~!LDp}fm*QZ_=^**">
+<field name="IDENTIFIER">lift2AsDcMotor</field>
+<field name="PROP">Mode</field>
+<data>{"IDENTIFIER":"lift2"}</data>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_runMode" id="kfu]^sLq]}Mf1,bMQ7oI">
+<field name="RUN_MODE">RUN_TO_POSITION</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_Number" id="N/J4+Rqwws2Nqp$,5}Vv">
+<field name="IDENTIFIER">liftAsDcMotor</field>
+<field name="PROP">Power</field>
+<data>{"IDENTIFIER":"lift"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="A)ZU=R]}nYfn[Z!y%Y$b">
+<field name="NUM">0</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_Number" id="??VvZ%yp^:dvTr0?_^:N">
+<field name="IDENTIFIER">lift2AsDcMotor</field>
+<field name="PROP">Power</field>
+<data>{"IDENTIFIER":"lift2"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="1`:eir{M=$KvT1#s922H">
+<field name="NUM">0</field>
+</shadow>
+</value>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+</block>
+<block type="procedures_defnoreturn" id="@MQvnyg(A/21H50n!lmj" x="637" y="-94">
+<field name="NAME">Lift up</field>
+<comment pinned="false" h="80" w="160">Describe this function...</comment>
+<statement name="STACK">
+<block type="dcMotor_setProperty_RunMode" id="nl?9tNmtFCNsI}tF;RuO">
+<field name="IDENTIFIER">liftAsDcMotor</field>
+<field name="PROP">Mode</field>
+<data>{"IDENTIFIER":"lift"}</data>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_runMode" id=";-SqHf]WYbeAjP.aNz;R">
+<field name="RUN_MODE">RUN_USING_ENCODER</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_Number" id="O_,^%oQ6X6I4mc,NLkz;">
+<field name="IDENTIFIER">liftAsDcMotor</field>
+<field name="PROP">TargetPosition</field>
+<data>{"IDENTIFIER":"lift"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="@66Ay0ob.,]GRewiRIq%">
+<field name="NUM">0</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_RunMode" id="/%#~I#HlzjQ!]uMhJQGu">
+<field name="IDENTIFIER">liftAsDcMotor</field>
+<field name="PROP">Mode</field>
+<data>{"IDENTIFIER":"lift"}</data>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_runMode" id="O?/[HtHf),|LMT).a;OV">
+<field name="RUN_MODE">RUN_TO_POSITION</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_Number" id="U-x(9Tj(s8{WKcIwMtSc">
+<field name="IDENTIFIER">liftAsDcMotor</field>
+<field name="PROP">Power</field>
+<data>{"IDENTIFIER":"lift"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="8FPRUr~}Z5IBV.Vl-e*.">
+<field name="NUM">0.85</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_RunMode" id="4xkib]yx!7Dq*2;wFEX1" disabled="true">
+<field name="IDENTIFIER">lift2AsDcMotor</field>
+<field name="PROP">Mode</field>
+<data>{"IDENTIFIER":"lift2"}</data>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_runMode" id="J4xL#CIxyU?C!PaZQs/-">
+<field name="RUN_MODE">RUN_USING_ENCODER</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_Number" id="XmFme;J`Lu.x;=7In0f=" disabled="true">
+<field name="IDENTIFIER">lift2AsDcMotor</field>
+<field name="PROP">TargetPosition</field>
+<data>{"IDENTIFIER":"lift2"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="dj85+?^P9=uqs-1#3k{:">
+<field name="NUM">0</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_RunMode" id="=,.YR~6t;BM;jvj1/j)-" disabled="true">
+<field name="IDENTIFIER">lift2AsDcMotor</field>
+<field name="PROP">Mode</field>
+<data>{"IDENTIFIER":"lift2"}</data>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_runMode" id="bC-zyciy!=`0A%*dy*e2">
+<field name="RUN_MODE">RUN_TO_POSITION</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_Number" id="MHIb#5;.X*eoDE4BHOWQ">
+<field name="IDENTIFIER">lift2AsDcMotor</field>
+<field name="PROP">Power</field>
+<data>{"IDENTIFIER":"lift2"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="|H38c3i3vb2(T;5K,+g+">
+<field name="NUM">0</field>
+</shadow>
+</value>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+</block>
+<block type="comment" id="Jh/;L$n@JuX8AQJDFCul" x="248" y="92">
+<field name="COMMENT">Put loop blocks here.</field>
+</block>
+<block type="procedures_defnoreturn" id="WtpyD@tEu+EoY=P9iY,D" deletable="false" x="-140" y="166">
+<field name="NAME">runOpMode</field>
+<comment pinned="false" h="141" w="577">This sample contains the bare minimum Blocks for any regular OpMode. The 3 blue
+Comment Blocks show where to place Initialization code (runs once, after touching the
+DS INIT button, and before touching the DS Start arrow), Run code (runs once, after
+touching Start), and Loop code (runs repeatedly while the OpMode is active, namely not
+Stopped).</comment>
+<data>{"commentPositionLeft":-20,"commentPositionTop":-169}</data>
+<statement name="STACK">
+<block type="comment" id="Lc#BFtj*NTB48YL;eBl.">
+<field name="COMMENT">Put initialization blocks here.</field>
+<next>
+<block type="procedures_callnoreturn" id="79S*L7q.-T#O(AZWFG8m">
+<mutation name="Lift init"/>
+<next>
+<block type="linearOpMode_waitForStart" id=":`$wN_ci`O;o6P0~.(+g">
+<next>
+<block type="controls_if" id="}Q?5mbxSO8Di;i!__6[y">
+<value name="IF0">
+<block type="linearOpMode_opModeIsActive" id=")o%YFX/#9kvv^sgXr4~5"/>
+</value>
+<statement name="DO0">
+<block type="comment" id="(rU-p_T_/B|vExcs}liL">
+<field name="COMMENT">Put run blocks here.</field>
+<next>
+<block type="controls_whileUntil" id="^0Kagy/e+Ea{rbZPv2G6">
+<field name="MODE">WHILE</field>
+<value name="BOOL">
+<block type="linearOpMode_opModeIsActive" id="e)cr{!2VIET83s,JWC.="/>
+</value>
+<statement name="DO">
+<block type="controls_if" id="sfo8Q*7C`7gH}fn/RsJ:">
+<mutation elseif="3"/>
+<value name="IF0">
+<block type="gamepad_getProperty_Boolean" id="9E!6l86D~a(y-?vIdp7C">
+<field name="IDENTIFIER">gamepad1</field>
+<field name="PROP">A</field>
+<data>{"IDENTIFIER":"gamepad1"}</data>
+</block>
+</value>
+<statement name="DO0">
+<block type="procedures_callnoreturn" id="]o:%J;jhN(DQ,tcy7f4g">
+<mutation name="lift down3"/>
+</block>
+</statement>
+<value name="IF1">
+<block type="gamepad_getProperty_Boolean" id="l.ohdYq=!Wq:z=60l;J]">
+<field name="IDENTIFIER">gamepad1</field>
+<field name="PROP">B</field>
+<data>{"IDENTIFIER":"gamepad1"}</data>
+</block>
+</value>
+<statement name="DO1">
+<block type="procedures_callnoreturn" id="*hzyc7XTT$J3){V=1mwF">
+<mutation name="Lift up3"/>
+</block>
+</statement>
+<value name="IF2">
+<block type="gamepad_getProperty_Boolean" id="/|L*cQQ`qS=?2awFoHaB">
+<field name="IDENTIFIER">gamepad1</field>
+<field name="PROP">X</field>
+<data>{"IDENTIFIER":"gamepad1"}</data>
+</block>
+</value>
+<value name="IF3">
+<block type="gamepad_getProperty_Boolean" id="4V#hp3v@Z[|~jHDt!hOf">
+<field name="IDENTIFIER">gamepad1</field>
+<field name="PROP">Y</field>
+<data>{"IDENTIFIER":"gamepad1"}</data>
+</block>
+</value>
+<next>
+<block type="telemetry_addNumericData_Number" id="[zh8i!^vRN2Pw`EkDy*9">
+<value name="KEY">
+<shadow type="text" id="Oebj!0@Sm^L3,F1yxHqv">
+<field name="TEXT">Lift 1 Current Pos</field>
+</shadow>
+</value>
+<value name="NUMBER">
+<shadow type="math_number" id="wu8z7+{G}M]HC81tSE_H">
+<field name="NUM">123</field>
+</shadow>
+<block type="dcMotor_getProperty_Number" id="POGZ[jfZBK2c`GO5hiy@">
+<field name="IDENTIFIER">liftAsDcMotor</field>
+<field name="PROP">CurrentPosition</field>
+<data>{"IDENTIFIER":"lift"}</data>
+</block>
+</value>
+<next>
+<block type="telemetry_addNumericData_Number" id="KdU7ios9mXq^Uou!a~Xu">
+<value name="KEY">
+<shadow type="text" id="[%0,]nr!ar{G7uIG*iM9">
+<field name="TEXT">Lift  1 Power</field>
+</shadow>
+</value>
+<value name="NUMBER">
+<shadow type="math_number">
+<field name="NUM">123</field>
+</shadow>
+<block type="dcMotor_getProperty_Number" id="o;ra08zriZAqlm|c.E/O">
+<field name="IDENTIFIER">liftAsDcMotor</field>
+<field name="PROP">Power</field>
+<data>{"IDENTIFIER":"lift"}</data>
+</block>
+</value>
+<next>
+<block type="telemetry_addNumericData_Number" id="yV9KED}-b;OvZoW{xV4|">
+<value name="KEY">
+<shadow type="text" id="0[52y%1Nv+4CD[ArA-]1">
+<field name="TEXT">lift 2 current pos</field>
+</shadow>
+</value>
+<value name="NUMBER">
+<shadow type="math_number">
+<field name="NUM">123</field>
+</shadow>
+<block type="dcMotor_getProperty_Number" id="wmJ,d%xl@u*T%.+x4;:2">
+<field name="IDENTIFIER">lift2AsDcMotor</field>
+<field name="PROP">Power</field>
+<data>{"IDENTIFIER":"lift2"}</data>
+</block>
+</value>
+<next>
+<block type="telemetry_addNumericData_Number" id="0Z#+n(jT:XA,%2eJ+`3a">
+<value name="KEY">
+<shadow type="text" id=")mVrEIbT_vUI+be2}eai">
+<field name="TEXT">Lift 2 power</field>
+</shadow>
+</value>
+<value name="NUMBER">
+<shadow type="math_number">
+<field name="NUM">123</field>
+</shadow>
+<block type="dcMotor_getProperty_Number" id="H_Emf]]Iw1S0?G|wL9r$">
+<field name="IDENTIFIER">lift2AsDcMotor</field>
+<field name="PROP">TargetPosition</field>
+<data>{"IDENTIFIER":"lift2"}</data>
+</block>
+</value>
+<next>
+<block type="telemetry_update" id="exvivmft-pX$n!1,8Ea$"/>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+</block>
+</next>
+</block>
+</statement>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+</block>
+<block type="procedures_defnoreturn" id="k~hgHX2V;-Lnrqlc^12n" x="657" y="167">
+<field name="NAME">lift down</field>
+<comment pinned="false" h="80" w="160">Describe this function...</comment>
+<statement name="STACK">
+<block type="dcMotor_setProperty_RunMode" id="GGu67)Pi081)U?*=`2U7">
+<field name="IDENTIFIER">liftAsDcMotor</field>
+<field name="PROP">Mode</field>
+<data>{"IDENTIFIER":"lift"}</data>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_runMode" id="m%6`Aqu1Wry0`SfkSj^;">
+<field name="RUN_MODE">RUN_USING_ENCODER</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_Number" id="elQ~290=sN%JOSf0n%}=">
+<field name="IDENTIFIER">liftAsDcMotor</field>
+<field name="PROP">TargetPosition</field>
+<data>{"IDENTIFIER":"lift"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="x)4g2Nr549^OCsl?,ay?">
+<field name="NUM">1000</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_RunMode" id="35?zxk6Kd_NLaS%WvFIB">
+<field name="IDENTIFIER">liftAsDcMotor</field>
+<field name="PROP">Mode</field>
+<data>{"IDENTIFIER":"lift"}</data>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_runMode" id="=stR]h8!gha!ME]r[s;^">
+<field name="RUN_MODE">RUN_TO_POSITION</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_Number" id="Tr5Ihy9:`t/qnrzv$(;*">
+<field name="IDENTIFIER">liftAsDcMotor</field>
+<field name="PROP">Power</field>
+<data>{"IDENTIFIER":"lift"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="A:[h9eWC4d[@VT~b52B(">
+<field name="NUM">0.85</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_RunMode" id="F3t#@qH]?:HoRn#VJ,VY" disabled="true">
+<field name="IDENTIFIER">lift2AsDcMotor</field>
+<field name="PROP">Mode</field>
+<data>{"IDENTIFIER":"lift2"}</data>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_runMode" id="VI/taW!87.mv:,PT.0Mn">
+<field name="RUN_MODE">RUN_USING_ENCODER</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_Number" id="1XU7c,[9`f,S;7#oN94d" disabled="true">
+<field name="IDENTIFIER">lift2AsDcMotor</field>
+<field name="PROP">TargetPosition</field>
+<data>{"IDENTIFIER":"lift2"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="+Yu){Rh%Rj527%(04Gwx">
+<field name="NUM">1000</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_RunMode" id="HLUs%@$LQ^-LBzZ!?5S;" disabled="true">
+<field name="IDENTIFIER">lift2AsDcMotor</field>
+<field name="PROP">Mode</field>
+<data>{"IDENTIFIER":"lift2"}</data>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_runMode" id="AV/HmwU[G.bwNs#Pk`dp">
+<field name="RUN_MODE">RUN_TO_POSITION</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_Number" id="d#[DY)(sB$mLLx*Zbq{z">
+<field name="IDENTIFIER">lift2AsDcMotor</field>
+<field name="PROP">Power</field>
+<data>{"IDENTIFIER":"lift2"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="oD../AqK@9sQHV~$.GKL">
+<field name="NUM">0</field>
+</shadow>
+</value>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+</block>
+<block type="procedures_defnoreturn" id="]OIsY[-aPMYVisTG*1LA" x="1260" y="214">
+<field name="NAME">lift down3</field>
+<comment pinned="false" h="80" w="160">Describe this function...</comment>
+<statement name="STACK">
+<block type="dcMotor_setProperty_RunMode" id="=PCXc7Xl%hQ3vws7PvIF">
+<field name="IDENTIFIER">liftAsDcMotor</field>
+<field name="PROP">Mode</field>
+<data>{"IDENTIFIER":"lift"}</data>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_runMode" id="/hoFC0,zl#5s:PjaBX_M">
+<field name="RUN_MODE">RUN_USING_ENCODER</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_Number" id="4{B7.V[q9n2}1?8CK/|?">
+<field name="IDENTIFIER">liftAsDcMotor</field>
+<field name="PROP">TargetPosition</field>
+<data>{"IDENTIFIER":"lift"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="o;t.Il8*~B!~%klC_~+r">
+<field name="NUM">4000</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_RunMode" id="3r].-p)]40L;$CIJcE,r">
+<field name="IDENTIFIER">liftAsDcMotor</field>
+<field name="PROP">Mode</field>
+<data>{"IDENTIFIER":"lift"}</data>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_runMode" id="Lj{OFl`jtnJgRR2K*8Nw">
+<field name="RUN_MODE">RUN_TO_POSITION</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_Number" id="XD=C)!p~JBKXE|Frn(vK">
+<field name="IDENTIFIER">liftAsDcMotor</field>
+<field name="PROP">Power</field>
+<data>{"IDENTIFIER":"lift"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="j5Uw#]E!JOtTg|mf:p6)">
+<field name="NUM">1</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_RunMode" id="VMLiM(_p{CERb0U;ifu.">
+<field name="IDENTIFIER">lift2AsDcMotor</field>
+<field name="PROP">Mode</field>
+<data>{"IDENTIFIER":"lift2"}</data>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_runMode" id="HNwzJGq;QRhGD~O|MG?S">
+<field name="RUN_MODE">RUN_USING_ENCODER</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_Number" id="($ab;hg!$wKQZl7F:=gI">
+<field name="IDENTIFIER">lift2AsDcMotor</field>
+<field name="PROP">TargetPosition</field>
+<data>{"IDENTIFIER":"lift2"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="#vqR:Rk]J^R2IT4DGXbV">
+<field name="NUM">4000</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_RunMode" id="yeN}2$T+!YJn_d.xb-6Y">
+<field name="IDENTIFIER">lift2AsDcMotor</field>
+<field name="PROP">Mode</field>
+<data>{"IDENTIFIER":"lift2"}</data>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_runMode" id=")pt~/{hIpT#X;-#f]6rd">
+<field name="RUN_MODE">RUN_TO_POSITION</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_Number" id="javg5o-^IJBa=@,zjvHN">
+<field name="IDENTIFIER">lift2AsDcMotor</field>
+<field name="PROP">Power</field>
+<data>{"IDENTIFIER":"lift2"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="8s|xSr0WiIqb%:3^tV--">
+<field name="NUM">1</field>
+</shadow>
+</value>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+</block>
+<block type="procedures_callnoreturn" id="tgu/e{1KUV:Q}6,N6}2m" x="347" y="352">
+<mutation name="lift down"/>
+</block>
+<block type="procedures_callnoreturn" id="POW^i{T#S:s(bE%!n[)!" x="367" y="435">
+<mutation name="Lift up"/>
+</block>
+<block type="procedures_defnoreturn" id="j8wAD}JDwvgaf7LU{X[l" x="673" y="431">
+<field name="NAME">Lift up2</field>
+<comment pinned="false" h="80" w="160">Describe this function...</comment>
+<statement name="STACK">
+<block type="dcMotor_setProperty_RunMode" id="RGySoMSWn!jtAWF!yw|0" disabled="true">
+<field name="IDENTIFIER">liftAsDcMotor</field>
+<field name="PROP">Mode</field>
+<data>{"IDENTIFIER":"lift"}</data>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_runMode" id="@yT%_:@p/gJ-T2Ip~3Cx">
+<field name="RUN_MODE">RUN_USING_ENCODER</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_Number" id="j_ZJ{/Lupbr)u4R`vyh;" disabled="true">
+<field name="IDENTIFIER">liftAsDcMotor</field>
+<field name="PROP">TargetPosition</field>
+<data>{"IDENTIFIER":"lift"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="NkSgZA8Xk0@Yd!F%2h#u">
+<field name="NUM">0</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_RunMode" id="I(k:CRFn~A{:.--y#2%$" disabled="true">
+<field name="IDENTIFIER">liftAsDcMotor</field>
+<field name="PROP">Mode</field>
+<data>{"IDENTIFIER":"lift"}</data>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_runMode" id="v;lK.(.ndjmh%/jR,KF%">
+<field name="RUN_MODE">RUN_TO_POSITION</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_Number" id=";i79sH4-rsFThA/sE}Qn">
+<field name="IDENTIFIER">liftAsDcMotor</field>
+<field name="PROP">Power</field>
+<data>{"IDENTIFIER":"lift"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="c%!Xk(D(;5,C+f9`-z8W">
+<field name="NUM">0</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_RunMode" id="*?`UiU0LYF2HQGzzJfv+">
+<field name="IDENTIFIER">lift2AsDcMotor</field>
+<field name="PROP">Mode</field>
+<data>{"IDENTIFIER":"lift2"}</data>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_runMode" id="?-0J:,-d+N(aAC?}|-?4">
+<field name="RUN_MODE">RUN_USING_ENCODER</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_Number" id="=7mY^/28C^{U+2uh2N?8">
+<field name="IDENTIFIER">lift2AsDcMotor</field>
+<field name="PROP">TargetPosition</field>
+<data>{"IDENTIFIER":"lift2"}</data>
+<value name="VALUE">
+<shadow type="math_number" id=".k;a3o;?@v5aa5@az0dD">
+<field name="NUM">0</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_RunMode" id="m2y8W6)?dLl?OGRbPzfP">
+<field name="IDENTIFIER">lift2AsDcMotor</field>
+<field name="PROP">Mode</field>
+<data>{"IDENTIFIER":"lift2"}</data>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_runMode" id="K=u:9v5Yw8!|A]dCt4a5">
+<field name="RUN_MODE">RUN_TO_POSITION</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_Number" id="J@%KhWv+jV7iP^VMI%!{">
+<field name="IDENTIFIER">lift2AsDcMotor</field>
+<field name="PROP">Power</field>
+<data>{"IDENTIFIER":"lift2"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="or_OGME+;BJ1bBKTBJM~">
+<field name="NUM">0.85</field>
+</shadow>
+</value>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+</block>
+<block type="dcMotor_setProperty_Number" id="dyOIbrwkUq#bwOdN}#Qd" x="395" y="472">
+<field name="IDENTIFIER">liftAsDcMotor</field>
+<field name="PROP">Power</field>
+<data>{"IDENTIFIER":"lift"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="Y+9+XCIh{4Lp:K}TuzJD">
+<field name="NUM">0</field>
+</shadow>
+</value>
+</block>
+<block type="procedures_callnoreturn" id="Ti|=1OT]((tw]9jLf-Li" x="295" y="517">
+<mutation name="Lift up2"/>
+<next>
+<block type="procedures_callnoreturn" id="MDT6yxXmi!rd[1s6`yAR">
+<mutation name="lift down2"/>
+</block>
+</next>
+</block>
+<block type="procedures_defnoreturn" id="?aF@2FP1F2|n*I3|1]LJ" x="1261" y="517">
+<field name="NAME">Lift up3</field>
+<comment pinned="false" h="80" w="160">Describe this function...</comment>
+<statement name="STACK">
+<block type="dcMotor_setProperty_RunMode" id=";$IdUX#{$9nmzyH`(._0">
+<field name="IDENTIFIER">liftAsDcMotor</field>
+<field name="PROP">Mode</field>
+<data>{"IDENTIFIER":"lift"}</data>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_runMode" id="dFuQ/r+{*@(X?OuFmo;T">
+<field name="RUN_MODE">RUN_USING_ENCODER</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_Number" id="u1;T:_X:WZa`{3rR=DV?">
+<field name="IDENTIFIER">liftAsDcMotor</field>
+<field name="PROP">TargetPosition</field>
+<data>{"IDENTIFIER":"lift"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="mJa?%Do5i,YUejhQz%^a">
+<field name="NUM">0</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_RunMode" id="^eWfEzGeB4|G6,35W?7@">
+<field name="IDENTIFIER">liftAsDcMotor</field>
+<field name="PROP">Mode</field>
+<data>{"IDENTIFIER":"lift"}</data>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_runMode" id="`O=Sa=fnqv0VM={v)#XB">
+<field name="RUN_MODE">RUN_TO_POSITION</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_Number" id="kKzbk`)$[n,bXi,Lwo5o">
+<field name="IDENTIFIER">liftAsDcMotor</field>
+<field name="PROP">Power</field>
+<data>{"IDENTIFIER":"lift"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="pY8sgm22U#A1S$A}!R+F">
+<field name="NUM">1</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_RunMode" id="hg77O{*`^BgcFC#+G+#V">
+<field name="IDENTIFIER">lift2AsDcMotor</field>
+<field name="PROP">Mode</field>
+<data>{"IDENTIFIER":"lift2"}</data>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_runMode" id="--EY7V6^t8#gXvL0kmDr">
+<field name="RUN_MODE">RUN_USING_ENCODER</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_Number" id="-g8qDZYy5%~wUxP@Y9=8">
+<field name="IDENTIFIER">lift2AsDcMotor</field>
+<field name="PROP">TargetPosition</field>
+<data>{"IDENTIFIER":"lift2"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="zbh#wA_YUW]b%8vS@16#">
+<field name="NUM">0</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_RunMode" id="QuR.L1|yCT}6;bkIsv$i">
+<field name="IDENTIFIER">lift2AsDcMotor</field>
+<field name="PROP">Mode</field>
+<data>{"IDENTIFIER":"lift2"}</data>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_runMode" id=")-myMj6?`Z#hC4[9t3Zj">
+<field name="RUN_MODE">RUN_TO_POSITION</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_Number" id="glBATTa=+tlQe!GG@D^/">
+<field name="IDENTIFIER">lift2AsDcMotor</field>
+<field name="PROP">Power</field>
+<data>{"IDENTIFIER":"lift2"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="7S4tS#~?wo`S0oo1HEWN">
+<field name="NUM">1</field>
+</shadow>
+</value>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+</block>
+<block type="procedures_defnoreturn" id="VC=-f85Z)5yqGc~`:!m]" x="681" y="692">
+<field name="NAME">lift down2</field>
+<comment pinned="false" h="80" w="160">Describe this function...</comment>
+<statement name="STACK">
+<block type="dcMotor_setProperty_RunMode" id="4G.kE%(oW-E8O-E]wScX" disabled="true">
+<field name="IDENTIFIER">liftAsDcMotor</field>
+<field name="PROP">Mode</field>
+<data>{"IDENTIFIER":"lift"}</data>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_runMode" id="|aXgnH%KZ1`uX_U!G;rr">
+<field name="RUN_MODE">RUN_USING_ENCODER</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_Number" id="vR.Fy2m`k-sN3d.e_PqN" disabled="true">
+<field name="IDENTIFIER">liftAsDcMotor</field>
+<field name="PROP">TargetPosition</field>
+<data>{"IDENTIFIER":"lift"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="{!M-/_k~t%tJ^i-XyPCX">
+<field name="NUM">1000</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_RunMode" id="VsFVLuT+C;8+5M0Nq8Fd" disabled="true">
+<field name="IDENTIFIER">liftAsDcMotor</field>
+<field name="PROP">Mode</field>
+<data>{"IDENTIFIER":"lift"}</data>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_runMode" id="?GP76#uSyvQ]/.=Zr{/.">
+<field name="RUN_MODE">RUN_TO_POSITION</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_Number" id=";00lrrx-k@0oPg/)EEd6">
+<field name="IDENTIFIER">liftAsDcMotor</field>
+<field name="PROP">Power</field>
+<data>{"IDENTIFIER":"lift"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="TW.k7]57@DuOKX7P?`jE">
+<field name="NUM">0</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_RunMode" id="mw={WiI)h(oizrk(O_w$">
+<field name="IDENTIFIER">lift2AsDcMotor</field>
+<field name="PROP">Mode</field>
+<data>{"IDENTIFIER":"lift2"}</data>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_runMode" id="K:p?YYUr,s*ea8,}o_/U">
+<field name="RUN_MODE">RUN_USING_ENCODER</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_Number" id="+0ALOclv`J1c,Wqs;7m,">
+<field name="IDENTIFIER">lift2AsDcMotor</field>
+<field name="PROP">TargetPosition</field>
+<data>{"IDENTIFIER":"lift2"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="n2y4:pN/AvlxT`*`[?+n">
+<field name="NUM">1000</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_RunMode" id="WHBJ?aiIP)WqAlpSO2=z">
+<field name="IDENTIFIER">lift2AsDcMotor</field>
+<field name="PROP">Mode</field>
+<data>{"IDENTIFIER":"lift2"}</data>
+<value name="VALUE">
+<shadow type="dcMotor_typedEnum_runMode" id="SvPhTyu+*j/1uJ+_r[m`">
+<field name="RUN_MODE">RUN_TO_POSITION</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_Number" id="QNO;D8zf-nm(hxYrM4l.">
+<field name="IDENTIFIER">lift2AsDcMotor</field>
+<field name="PROP">Power</field>
+<data>{"IDENTIFIER":"lift2"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="vnb]R!|6fnS6Q+f{Wz0O">
+<field name="NUM">0.85</field>
+</shadow>
+</value>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+</block>
+</xml>
+<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<Extra>
+<OpModeMeta flavor="TELEOP" group="" autoTransition="" />
+<Enabled value="true" />
+</Extra>

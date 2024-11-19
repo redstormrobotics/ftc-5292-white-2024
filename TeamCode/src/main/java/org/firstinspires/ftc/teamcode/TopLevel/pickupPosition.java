@@ -15,7 +15,7 @@ import com.acmerobotics.roadrunner.Action;
 
 
 
-@Autonomous(name = "pickupPosition", preselectTeleOp = "White tele-op")
+@Autonomous(name = "pickupPosition", preselectTeleOp = "White tele-op improved Dual Motors")
 public final class pickupPosition extends LinearOpMode {
     public Robot robot;
 
@@ -85,6 +85,10 @@ public final class pickupPosition extends LinearOpMode {
                           robot.intake.intakeStop(),
                           robot.arm.armResting(),
                         Traj5
+                          //robot.lift.liftScoring(),
+                          //robot.arm.armScoring(),
+                          //robot.wrist.wristScoring(),
+                          //robot.intake.intakeOut()
 
                 )
         );
