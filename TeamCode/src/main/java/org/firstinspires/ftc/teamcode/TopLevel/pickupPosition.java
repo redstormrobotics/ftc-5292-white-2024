@@ -78,7 +78,7 @@ public final class pickupPosition extends LinearOpMode {
                  //         robot.arm.armResting(),
                   //        robot.wrist.wristPickup(),
                   //        robot.lift.liftHome(),
-                 //         robot.wrist.wristScoring(),
+                 //         robot.wrist.wristPickup(),
                         Traj4,
                           robot.arm.armPickUp(),
                           robot.intake.intakeIn(),

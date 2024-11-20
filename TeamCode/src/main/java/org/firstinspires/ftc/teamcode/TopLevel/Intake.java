@@ -47,7 +47,7 @@ public class Intake {
             }
 
 
-            if (counter < 200000){
+            if (counter < 400000){
                 counter = counter + 1;
                 return true;
             }
