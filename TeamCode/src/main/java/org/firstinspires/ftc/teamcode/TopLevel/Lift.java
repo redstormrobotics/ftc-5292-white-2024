@@ -75,9 +75,9 @@ public class Lift {
         @Override
         public boolean run(@NonNull TelemetryPacket packet){
             if(!inits){
-                lift.setTargetPosition(6400);
+                lift.setTargetPosition(8000);   // Add 200 more ticks if lift pos is too short
                 lift.setPower(1);
-                lift2.setTargetPosition(6400);
+                lift2.setTargetPosition(8000);  // Add 200 more ticks if lift pos is too short
                 lift2.setPower(1);
                 inits = true;
             }
