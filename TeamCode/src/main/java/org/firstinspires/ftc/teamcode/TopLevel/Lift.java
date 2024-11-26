@@ -75,9 +75,9 @@ public class Lift {
         @Override
         public boolean run(@NonNull TelemetryPacket packet){
             if(!inits){
-                lift.setTargetPosition(8000);   // Add 200 more ticks if lift pos is too short
+                lift.setTargetPosition(6000);   // Add 200 more ticks if lift pos is too short
                 lift.setPower(1);
-                lift2.setTargetPosition(8000);  // Add 200 more ticks if lift pos is too short
+                lift2.setTargetPosition(6000);  // Add 200 more ticks if lift pos is too short
                 lift2.setPower(1);
                 inits = true;
             }
@@ -116,7 +116,28 @@ public class Lift {
     }
     public Action liftHome(){ return new LiftHome();}
 
+    public class LiftTravel implements Action {
+        public boolean inits = false;
+
+        @Override
+
+
+        public boolean run(@NonNull TelemetryPacket packet) {
+
+            lift.setTargetPosition(0);   // Add 200 more ticks if lift pos is too short
+            lift.setPower(1);
+            lift2.setTargetPosition(0);  // Add 200 more ticks if lift pos is too short
+            lift2.setPower(1);
+            return false;
+        }
+    }
+
+
+
+    public Action liftTravel(){ return new LiftTravel();}
+
 }
+
 
 
 

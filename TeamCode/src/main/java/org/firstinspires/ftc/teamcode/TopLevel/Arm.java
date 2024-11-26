@@ -65,23 +65,17 @@ public class Arm {
     }
 
     public class ArmResting implements Action {
-        public boolean init = false;
         @Override
         public boolean run(@NonNull TelemetryPacket packet){
-            if (!init){
+
                 arm.setTargetPosition(0);
                 arm.setPower(.35);
-            }
-            if (arm.isBusy()){
-                return true;
-            }
-            else {
+
                 return false;
-            }
+
         }
     }
-    public Action armResting(){return new ArmResting();
-    }
+    public Action armResting(){return new ArmResting(); }
 
 
 
