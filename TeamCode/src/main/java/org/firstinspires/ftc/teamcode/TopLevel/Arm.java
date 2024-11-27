@@ -37,8 +37,8 @@ public class Arm {
     public class ArmPickUp implements Action {
         @Override
         public boolean run(@NonNull TelemetryPacket packet){
-            arm.setTargetPosition(2500);
-            arm.setPower(.35);
+            arm.setTargetPosition(2300);
+            arm.setPower(.15);
             return false;
         }
     }
@@ -48,17 +48,9 @@ public class Arm {
         public boolean init = false;
         @Override
         public boolean run(@NonNull TelemetryPacket packet){
-            if(!init){
-                arm.setPower(.35);
-                arm.setTargetPosition(-250);
-                init = true;
-            }
-            if (arm.isBusy()){
-                return true;
-            }
-            else{
-                return  false;
-            }
+            arm.setPower(.65);
+            arm.setTargetPosition(-250);
+            return  false;
         }
     }
     public Action armScoring(){return new ArmScoring();
@@ -69,27 +61,12 @@ public class Arm {
         public boolean run(@NonNull TelemetryPacket packet){
 
                 arm.setTargetPosition(0);
-                arm.setPower(.35);
-
+                arm.setPower(.65);
                 return false;
 
         }
     }
     public Action armResting(){return new ArmResting(); }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 }

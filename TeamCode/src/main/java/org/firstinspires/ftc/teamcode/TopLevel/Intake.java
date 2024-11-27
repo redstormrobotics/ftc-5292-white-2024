@@ -40,20 +40,22 @@ public class Intake {
         double counter = 0;
         @Override
         public boolean run(@NonNull TelemetryPacket packet){
-            if(!init) {
-                toproller.setPower(1);
-                bottomroller.setPower(1);
-                init = true;
-            }
-
-
-            if (counter < 400000){
-                counter = counter + 1;
-                return true;
-            }
-            else{
-                return false;
-            }
+            toproller.setPower(1);
+            bottomroller.setPower(1);
+            return false;
+//            if(!init) {
+//
+//                init = true;
+//            }
+//
+//
+//            if (counter < 400000){
+//                counter = counter + 1;
+//                return true;
+//            }
+//            else{
+//
+//            }
         }
     }
     public Action intakeIn(){
@@ -76,6 +78,8 @@ public class Intake {
                 return true;
             }
             else{
+
+                init =false;
                 return false;
             }
         }
@@ -96,5 +100,29 @@ public class Intake {
     }
     public Action intakeStop(){
         return new IntakeStop();
+    }
+
+
+    public class IntakeSleep implements Action {
+        public boolean init = false;
+        double counter = 0;
+        @Override
+
+        public boolean run(@NonNull TelemetryPacket packet){
+            if(!init){
+                init = true;
+            }
+            if (counter < 200000){
+                counter = counter + 1;
+                return true;
+            }
+            else{
+                init = false;
+                return false;
+            }
+        }
+    }
+    public Action intakeSleep(){
+        return new IntakeSleep();
     }
 }
