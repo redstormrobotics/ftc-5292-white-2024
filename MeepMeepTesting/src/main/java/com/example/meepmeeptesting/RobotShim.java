@@ -2,7 +2,7 @@ package com.example.meepmeeptesting;
 
 import com.acmerobotics.roadrunner.Action;
 import com.acmerobotics.roadrunner.SleepAction;
-import com.acmerobotics.dashboard.canvas.Canvas
+import com.acmerobotics.dashboard.canvas.Canvas;
 import com.acmerobotics.dashboard.telemetry.TelemetryPacket;
 
 public class RobotShim {
@@ -87,6 +87,7 @@ public class RobotShim {
 
         public static class LiftVisual implements Action {
             public boolean run(TelemetryPacket p) {
+                System.out.println("running ");
                 return Boolean.FALSE;
             }
 

@@ -112,6 +112,7 @@ public class        MeepMeepTesting3Pickup {
 
         return new SequentialAction(
                 new com.acmerobotics.roadrunner.SleepAction(2.0),
+                robot.lift.liftHome(),
                 robot.wrist.wristPickup(),
                 robot.arm.armPickUp(),
                 robot.intake.intakeIn(),
