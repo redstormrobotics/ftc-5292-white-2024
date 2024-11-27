@@ -18,6 +18,7 @@ public class        MeepMeepTesting3Pickup {
 
 
     static DriveShim drive = null;
+    static RobotShim robot = null;
 
     static void run_demo() {
         {
@@ -58,6 +59,7 @@ public class        MeepMeepTesting3Pickup {
                 .build();
 
         // Initialize the robot with the hardwareMap
+        robot = new RobotShim();
         drive = myBot.getDrive();
 
 
@@ -74,14 +76,15 @@ public class        MeepMeepTesting3Pickup {
     static
     private SequentialAction getAction() {
 
-        Pose2d beginPose = new Pose2d(-38.0, -61.0, Math.toRadians(92.0));
+        double offset = 90.0;
+        Pose2d beginPose = new Pose2d(-38.0, -61.0, Math.toRadians(offset+2.0));
         //Pose2d intakeFirstSample = new Pose2d(20, -6, 50);
-        Pose2d intakeFirstSample = new Pose2d(beginPose.position.plus(new Vector2d(6.0,20.0)), Math.toRadians(90.0+30.0));
+        Pose2d intakeFirstSample = new Pose2d(beginPose.position.plus(new Vector2d(6.0,20.0)), Math.toRadians(offset+30.0));
         //Pose2d scorePosition = new Pose2d(0, 3, 0);
-        Pose2d scorePositionP1 = new Pose2d(beginPose.position.plus(new Vector2d(-4.0, 0.0)), Math.toRadians(90.0));
-        Pose2d scorePositionP2 = new Pose2d(beginPose.position.plus(new Vector2d(-10.0, 0.0)), Math.toRadians(90.0));
+        Pose2d scorePositionP1 = new Pose2d(beginPose.position.plus(new Vector2d(-4.0, 0.0)), Math.toRadians(offset));
+        Pose2d scorePositionP2 = new Pose2d(beginPose.position.plus(new Vector2d(-10.0, 0.0)), Math.toRadians(offset));
         //Pose2d intakeSecondSample = new Pose2d(16, 13, 0);
-        Pose2d intakeSecondSample = new Pose2d(intakeFirstSample.position.plus(new Vector2d(-10.0, 0.0)), Math.toRadians(90.0+30.0));
+        Pose2d intakeSecondSample = new Pose2d(intakeFirstSample.position.plus(new Vector2d(-10.0, 0.0)), Math.toRadians(offset+30.0));
         //Pose2d Pose2 = new Pose2d(drive.pose.position.x,drive.pose.position.y,drive.pose.heading.image);
 
         Action driveBeginToIntakeFirst = drive.actionBuilder(beginPose)
@@ -109,31 +112,31 @@ public class        MeepMeepTesting3Pickup {
 
         return new SequentialAction(
                 new com.acmerobotics.roadrunner.SleepAction(2.0),
-                //robot.wrist.wristPickup(),
-                //robot.arm.armPickUp(),
-                //robot.intake.intakeIn(),
+                robot.wrist.wristPickup(),
+                robot.arm.armPickUp(),
+                robot.intake.intakeIn(),
                 driveBeginToIntakeFirst,
-                //robot.intake.intakeSleep(),
-                ///robot.intake.intakeStop(),
-                //robot.arm.armResting(),
-                ///robot.wrist.wristPickup(),
-                //robot.intake.intakeIn(),
+                robot.intake.intakeSleep(),
+                robot.intake.intakeStop(),
+                robot.arm.armResting(),
+                robot.wrist.wristPickup(),
+                robot.intake.intakeIn(),
                 driveIntakeFirstToScoreP1,
                 driveScoreP1ToScoreP2,
-                //robot.intake.intakeOut(),
-                //robot.intake.intakeStop(),
-                //robot.wrist.wristPickup(),
+                robot.intake.intakeOut(),
+                robot.intake.intakeStop(),
+                robot.wrist.wristPickup(),
                 driveScoreP2ToScoreP1,
-                //robot.arm.armPickUp(),
-                //robot.intake.intakeIn(),
+                robot.arm.armPickUp(),
+                robot.intake.intakeIn(),
                 driveScoreP2ToIntakeSecond,
-                //robot.intake.intakeSleep(),
-                //robot.intake.intakeStop(),
-                //robot.arm.armResting(),
+                robot.intake.intakeSleep(),
+                robot.intake.intakeStop(),
+                robot.arm.armResting(),
                 driveIntakeSecondToScoreP1,
                 driveScoreP1ToScoreP2,
-                //robot.intake.intakeOut(),
-                //robot.intake.intakeStop()
+                robot.intake.intakeOut(),
+                robot.intake.intakeStop(),
                 driveScoreP2ToScoreP1
         );
     }
