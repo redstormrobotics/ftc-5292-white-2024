@@ -9,6 +9,8 @@ import com.noahbres.meepmeep.MeepMeep;
 import com.noahbres.meepmeep.roadrunner.DefaultBotBuilder;
 import com.noahbres.meepmeep.roadrunner.entity.RoadRunnerBotEntity;
 
+import sun.font.TrueTypeFont;
+
 public class MeepMeepTesting2 {
     public static void main(String[] args) {
         //run_demo();
@@ -52,10 +54,11 @@ public class MeepMeepTesting2 {
                 // Set bot constraints: maxVel, maxAccel, maxAngVel, maxAngAccel, track width
                 .setConstraints(60, 60, Math.toRadians(180), Math.toRadians(180), 15)
                 .build();
-        Pose2d beginPose = new Pose2d(0, 0, 0);
-        Pose2d PoseAutonScore = new Pose2d(0, 30, Math.toRadians(0));
-        Pose2d PoseExtakeSample = new Pose2d(0, 36, Math.toRadians(0));
-        Pose2d PoseIntakeFirstSample = new Pose2d(10, 30, Math.toRadians(0));
+        double offset = 90;
+        Pose2d beginPose = new Pose2d(-38.0, -61.0, Math.toRadians(offset+2.0));
+        Pose2d PoseAutonScore = new Pose2d(-53,-61, Math.toRadians(offset+2.0));
+        Pose2d PoseExtakeSample = new Pose2d(-53+12-7, -61+14, Math.toRadians(offset+2.0));
+        Pose2d PoseIntakeFirstSample = new Pose2d(-53-4,-61+14, Math.toRadians(offset+2.0));
         //MecanumDrive drive = new MecanumDrive(hardwareMap, beginPose);
         //Pose2d Pose2 = new Pose2d(drive.pose.position.x,drive.pose.position.y,drive.pose.heading.imag);
         // Initialize the robot with the hardwareMap
@@ -76,24 +79,42 @@ public class MeepMeepTesting2 {
 
 
         traj1 = myBot.getDrive().actionBuilder(beginPose)
-                .splineToConstantHeading(new Vector2d(0,30),Math.toRadians(0))
-
+                .setTangent(offset+2.0)
+                .splineToLinearHeading(new Pose2d(-53,-61,Math.toRadians(offset+2.0)),Math.toRadians(offset+2.0))
                 .build();
 
         Action Traj2 = myBot.getDrive().actionBuilder(PoseAutonScore)
-                .splineToConstantHeading(new Vector2d(0,36),Math.toRadians(0))
+//              //constant heading
+//                .splineToConstantHeading(new Vector2d(-53+12,-61),Math.toRadians(offset+2.0))
+//                .splineToConstantHeading(new Vector2d(-53+12-7, -61+14),Math.toRadians(offset+2.0))
+                //linear heading
+                .setTangent(offset+2.0)
+                .splineToLinearHeading(new Pose2d(-53+12,-61+20,Math.toRadians(offset+2.0)),Math.toRadians(offset+2.0))
                 .build();
-
+//
         Action Traj3 = myBot.getDrive().actionBuilder(PoseExtakeSample)
-                .splineToConstantHeading(new Vector2d(0,30),Math.toRadians(0))
+                //constant
+                //.splineToConstantHeading(new Vector2d(-53,-61),Math.toRadians(offset+2.0))
+                .setReversed(true)
+                .setTangent(offset+30)
+                .splineToLinearHeading(new Pose2d(-53,-61,Math.toRadians(offset+2.0)),Math.toRadians(offset+2.0))
+                .build();
+//
+        Action Traj4 = myBot.getDrive().actionBuilder(PoseAutonScore)
+                .setTangent(offset+2.0)
+                .splineToLinearHeading(new Pose2d(-53+15,-61+14,Math.toRadians(offset+30)),Math.toRadians(offset+2.0))
+//                .splineToConstantHeading(new Vector2d(-53-4,-61+14),Math.toRadians(offset+2.0))
                 .build();
 
-        Action Traj4 = myBot.getDrive().actionBuilder(PoseAutonScore)
-                .splineToConstantHeading(new Vector2d(10,30),Math.toRadians(0))
-                .build();
-        Action Traj5 = myBot.getDrive().actionBuilder(PoseIntakeFirstSample)
-                .splineToConstantHeading(new Vector2d(0,30),Math.toRadians(90))
-                .build();
+//        Action Traj5 = myBot.getDrive().actionBuilder(PoseIntakeFirstSample)
+//
+//                .setTangent(Math.toRadians(offset+2.0))
+//                .splineToLinearHeading(new Pose2d(50, -32, Math.toRadians(-90)), Math.toRadians(offset+2.0))
+////                .splineTo(new Vector2d(-40,-40),Math.toRadians(0))
+////                .splineTo(new Vector2d(50,-32),Math.toRadians(0))
+//
+////                .splineToConstantHeading(new Vector2d(0,30),Math.toRadians(90))
+//                .build();
 
 
 
@@ -103,20 +124,20 @@ public class MeepMeepTesting2 {
                         //         robot.lift.liftScoring(),
                         //       robot.arm.armScoring(),
                         //       robot.wrist.wristScoring(),
-                        Traj2,
+                        Traj2
                         //       robot.intake.intakeOut(),
                         //      robot.intake.intakeStop(),
-                        Traj3,
+                     //  Traj3
                         //         robot.arm.armResting(),
                         //        robot.wrist.wristPickup(),
                         //        robot.lift.liftHome(),
                         //         robot.wrist.wristScoring(),
-                        Traj4,
+                       // Traj4
                       //  robot.arm.armPickUp(),
                   //      robot.intake.intakeIn(),
                   //      robot.intake.intakeStop(),
                    //     robot.arm.armResting(),
-                        Traj5
+                      // Traj5
                 )
         );
 

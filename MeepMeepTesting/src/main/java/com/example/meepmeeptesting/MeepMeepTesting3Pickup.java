@@ -79,7 +79,7 @@ public class        MeepMeepTesting3Pickup {
         double offset = 90.0;
         Pose2d beginPose = new Pose2d(-38.0, -61.0, Math.toRadians(offset+2.0));
         //Pose2d intakeFirstSample = new Pose2d(20, -6, 50);
-        Pose2d intakeFirstSample = new Pose2d(beginPose.position.plus(new Vector2d(6.0,20.0)), Math.toRadians(offset+30.0));
+        Pose2d intakeFirstSample = new Pose2d(beginPose.position.plus(new Vector2d(-15.0,0)), Math.toRadians(offset+0));
         //Pose2d scorePosition = new Pose2d(0, 3, 0);
         Pose2d scorePositionP1 = new Pose2d(beginPose.position.plus(new Vector2d(-4.0, 0.0)), Math.toRadians(offset));
         Pose2d scorePositionP2 = new Pose2d(beginPose.position.plus(new Vector2d(-10.0, 0.0)), Math.toRadians(offset));

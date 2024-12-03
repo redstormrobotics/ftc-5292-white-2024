@@ -22,10 +22,11 @@ public final class pickupPosition extends LinearOpMode {
 
     @Override
     public void runOpMode() throws InterruptedException {
-        Pose2d beginPose = new Pose2d(0, 0, 0);
-        Pose2d PoseAutonScore = new Pose2d(0, 30, Math.toRadians(0));
-        Pose2d PoseExtakeSample = new Pose2d(0, 40, Math.toRadians(0));
-        Pose2d PoseIntakeFirstSample = new Pose2d(14, 30, Math.toRadians(0));
+        double offset = 90;
+        Pose2d beginPose = new Pose2d(-38.0, -61.0, Math.toRadians(offset+2.0));
+        Pose2d PoseAutonScore = new Pose2d(-53,-61, Math.toRadians(offset+2.0));
+        Pose2d PoseExtakeSample = new Pose2d(-53+12-7, -61+14, Math.toRadians(offset+2.0));
+        Pose2d PoseIntakeFirstSample = new Pose2d(-53-4,-61+14, Math.toRadians(offset+2.0));
         MecanumDrive drive = new MecanumDrive(hardwareMap, beginPose);
         //Pose2d Pose2 = new Pose2d(drive.pose.position.x,drive.pose.position.y,drive.pose.heading.image);
         // Initialize the robot with the hardwareMap
@@ -45,19 +46,24 @@ public final class pickupPosition extends LinearOpMode {
 
 
         traj1 = drive.actionBuilder(beginPose)
-                .splineToConstantHeading(new Vector2d(0,30),Math.toRadians(0), new TranslationalVelConstraint(30.0))
+                .setTangent(offset+2.0)
+                .splineToLinearHeading(new Pose2d(-53,-61,Math.toRadians(offset+2.0)),Math.toRadians(offset+2.0))
                 .build();
 
         Action Traj2 = drive.actionBuilder(PoseAutonScore)
-                .splineToConstantHeading(new Vector2d(0,42),Math.toRadians(0))
+                .setTangent(offset+2.0)
+                .splineToLinearHeading(new Pose2d(-53+12,-61+20,Math.toRadians(offset+2.0)),Math.toRadians(offset+2.0))
                 .build();
 
         Action Traj3 = drive.actionBuilder(PoseExtakeSample)
-                .splineToConstantHeading(new Vector2d(0,30),Math.toRadians(0))
+                .setReversed(true)
+                .setTangent(offset+30)
+                .splineToLinearHeading(new Pose2d(-53,-61,Math.toRadians(offset+2.0)),Math.toRadians(offset+2.0))
                 .build();
 
         Action Traj4 = drive.actionBuilder(PoseAutonScore)
-                .splineToConstantHeading(new Vector2d(14,30),Math.toRadians(0), new TranslationalVelConstraint(30.0))
+                .setTangent(offset+2.0)
+                .splineToLinearHeading(new Pose2d(-53+15,-61+14,Math.toRadians(offset+30)),Math.toRadians(offset+2.0))
                 .build();
 
         Action Traj5 = drive.actionBuilder(PoseIntakeFirstSample)
