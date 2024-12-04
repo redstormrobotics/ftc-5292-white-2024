@@ -71,7 +71,7 @@ public class Wrist {
     public class WristScoring implements Action {
         @Override
         public boolean run(@NonNull TelemetryPacket packet){
-            wrist.setPosition(.88);
+            wrist.setPosition(.64);
 
             return false;
         }
