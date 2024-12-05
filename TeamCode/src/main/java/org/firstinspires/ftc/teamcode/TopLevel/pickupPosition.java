@@ -24,9 +24,9 @@ public final class pickupPosition extends LinearOpMode {
     public void runOpMode() throws InterruptedException {
         double offset = 90;
         Pose2d beginPose = new Pose2d(-38.0, -61.0, Math.toRadians(offset+2.0));
-        Pose2d PoseAutonScore = new Pose2d(-53-3,-61-6, Math.toRadians(offset+2.0));
-        Pose2d PoseExtakeSample = new Pose2d(-53+12-5+2, -61+20-3, Math.toRadians(offset+2.0));
-        Pose2d PoseScoreFirstSample = new Pose2d(-53, -61, Math.toRadians(offset+2.0));
+        Pose2d PoseAutonScore = new Pose2d(-56,-67, Math.toRadians(offset+2.0));
+        Pose2d PoseExtakeSample = new Pose2d(-44, -44, Math.toRadians(offset+2.0));
+        Pose2d PoseScoreFirstSample = new Pose2d(-53-3-3, -61, Math.toRadians(offset+2.0));
         Pose2d PoseIntakeFirstSample = new Pose2d(-53,-61, Math.toRadians(offset+2.0));
         MecanumDrive drive = new MecanumDrive(hardwareMap, beginPose);
         //Pose2d Pose2 = new Pose2d(drive.pose.position.x,drive.pose.position.y,drive.pose.heading.image);
@@ -50,23 +50,23 @@ public final class pickupPosition extends LinearOpMode {
 
         FirstScore = drive.actionBuilder(beginPose)
                 .setTangent(offset+2.0)
-                .splineToLinearHeading(new Pose2d(-53-3,-61-6,Math.toRadians(offset+2.0)),Math.toRadians(offset+2.0))
+                .splineToLinearHeading(new Pose2d(-56,-67,Math.toRadians(offset+2.0)),Math.toRadians(offset+2.0))
                 .build();
 
         Action IntakeFirstSample = drive.actionBuilder(PoseAutonScore)
                 .setTangent(offset+2.0)
-                .splineToLinearHeading(new Pose2d(-53+12-5+2,-61+20-3,Math.toRadians(offset+2.0)),Math.toRadians(offset+2.0))
+                .splineToLinearHeading(new Pose2d(-44,-44,Math.toRadians(offset+2.0)),Math.toRadians(offset+2.0))
                 .build();
 
         Action ScoreSecondSample = drive.actionBuilder(PoseExtakeSample)
                 .setReversed(true)
                 .setTangent(offset+30)
-                .splineToLinearHeading(new Pose2d(-53,-61,Math.toRadians(offset+2.0)),Math.toRadians(offset+2.0))
+                .splineToLinearHeading(new Pose2d(-53-3-3,-61,Math.toRadians(offset+2.0)),Math.toRadians(offset+2.0))
                 .build();
 
         Action IntakeSecondSample = drive.actionBuilder(PoseScoreFirstSample)
                 .setTangent(offset+2.0)
-                .splineToLinearHeading(new Pose2d(-53+12-5+2-10,-61+20-3,Math.toRadians(offset+30)),Math.toRadians(offset+2.0))
+                .splineToLinearHeading(new Pose2d(-46+5,-44+3.5,Math.toRadians(offset+30)),Math.toRadians(offset+2.0), new TranslationalVelConstraint(20.0))
                 .build();
 
         Action ScoreThirdSample = drive.actionBuilder(PoseIntakeFirstSample)
@@ -95,21 +95,26 @@ public final class pickupPosition extends LinearOpMode {
                         robot.intake.intakeStop(),
                         robot.wrist.wristPickup(),
                         robot.arm.armResting(),
+                        robot.lift.liftScoring(),
                         ScoreSecondSample,
+                        robot.arm.armScoring(),
+                        robot.wrist.wristScoring(),
+                        robot.intake.intakeSleepLess(),
+                        robot.intake.intakeOut(),
+                        robot.intake.intakeStop(),
+                        robot.arm.armResting(),
                         robot.wrist.wristPickup(),
+                        robot.lift.liftTravel(),
                         robot.arm.armPickUp(),
+                        robot.wrist.wristPickup(),
                         robot.intake.intakeIn(),
                         IntakeSecondSample,
-                        robot.intake.intakeIn(),
+                        robot.intake.intakeSleep(),
                         robot.intake.intakeStop(),
-                        robot.arm.armResting()
-
-                        //not using
-                   //     Traj5
-                    //      robot.lift.liftScoring(),
-                     //     robot.arm.armScoring(),
-                  //        robot.wrist.wristScoring(),
-                    //      robot.intake.intakeOut()
+                        robot.arm.armResting(),
+                        robot.wrist.wristScoring(),
+                        robot.intake.intakeSleep(),
+                        robot.intake.intakeSleep()
 
                 )
         );

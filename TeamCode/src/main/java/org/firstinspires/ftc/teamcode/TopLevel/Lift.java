@@ -79,7 +79,7 @@ public class Lift {
                     lift2.setPower(1);
                     inits = true;
                 }
-                if(lift.getCurrentPosition() < 6200){
+                if(lift.getCurrentPosition() < 2500){
                     return true;
                 }
                 else {

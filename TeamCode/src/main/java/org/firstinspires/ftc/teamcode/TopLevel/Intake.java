@@ -125,4 +125,26 @@ public class Intake {
     public Action intakeSleep(){
         return new IntakeSleep();
     }
+    public class IntakeSleepLess implements Action {
+        public boolean init = false;
+        double counter = 0;
+        @Override
+
+        public boolean run(@NonNull TelemetryPacket packet){
+            if(!init){
+                init = true;
+            }
+            if (counter < 100000){
+                counter = counter + 1;
+                return true;
+            }
+            else{
+                init = false;
+                return false;
+            }
+        }
+    }
+    public Action intakeSleepLess(){
+        return new IntakeSleepLess();
+    }
 }
