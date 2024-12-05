@@ -79,7 +79,7 @@ public class        MeepMeepTesting3Pickup {
         double offset = 90.0;
         Pose2d beginPose = new Pose2d(-38.0, -61.0, Math.toRadians(offset+2.0));
         //Pose2d intakeFirstSample = new Pose2d(20, -6, 50);
-        Pose2d intakeFirstSample = new Pose2d(beginPose.position.plus(new Vector2d(-15.0,0)), Math.toRadians(offset+0));
+        Pose2d intakeFirstSample = new Pose2d(beginPose.position.plus(new Vector2d(-12.0,20.0)), Math.toRadians(offset+30));
         //Pose2d scorePosition = new Pose2d(0, 3, 0);
         Pose2d scorePositionP1 = new Pose2d(beginPose.position.plus(new Vector2d(-4.0, 0.0)), Math.toRadians(offset));
         Pose2d scorePositionP2 = new Pose2d(beginPose.position.plus(new Vector2d(-10.0, 0.0)), Math.toRadians(offset));
@@ -92,22 +92,20 @@ public class        MeepMeepTesting3Pickup {
                 .build();
 
         Action driveIntakeFirstToScoreP1 = drive.actionBuilder(intakeFirstSample)
-                .splineToLinearHeading(scorePositionP1,scorePositionP1.heading)
+                .strafeToSplineHeading(scorePositionP1.position,scorePositionP1.heading)
                 .build();
         Action driveScoreP1ToScoreP2 = drive.actionBuilder(scorePositionP1)
-                .splineToLinearHeading(scorePositionP2,scorePositionP2.heading)
-                .build();
+                .strafeToSplineHeading(scorePositionP2.position, scorePositionP2.heading).build();
 
         Action driveScoreP2ToScoreP1 = drive.actionBuilder(scorePositionP2)
-                .splineToLinearHeading(scorePositionP1,scorePositionP1.heading)
-                .build();
+                .strafeToSplineHeading(scorePositionP1.position, scorePositionP1.heading).build();
 
-        Action driveScoreP2ToIntakeSecond = drive.actionBuilder(scorePositionP2)
+        Action driveScoreP1ToIntakeSecond = drive.actionBuilder(scorePositionP1)
                 .splineToLinearHeading(intakeSecondSample,intakeSecondSample.heading)
                 .build();
 
         Action driveIntakeSecondToScoreP1 = drive.actionBuilder(intakeSecondSample)
-                .splineToLinearHeading(scorePositionP1, scorePositionP1.heading)
+                .strafeToSplineHeading(scorePositionP1.position, scorePositionP1.heading)
                 .build();
 
         return new SequentialAction(
@@ -130,7 +128,7 @@ public class        MeepMeepTesting3Pickup {
                 driveScoreP2ToScoreP1,
                 robot.arm.armPickUp(),
                 robot.intake.intakeIn(),
-                driveScoreP2ToIntakeSecond,
+                driveScoreP1ToIntakeSecond,
                 robot.intake.intakeSleep(),
                 robot.intake.intakeStop(),
                 robot.arm.armResting(),
