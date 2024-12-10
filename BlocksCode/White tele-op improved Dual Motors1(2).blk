@@ -5,9 +5,9 @@
 <variable id="KPua6M0!.@P=4/U0]Sm2">orientationOnRobot</variable>
 <variable id="~LUL9~Z;enziZiH||`!?">orientation</variable>
 <variable id="jolr/iTPj4wxl6iDsl9q">isDone</variable>
+<variable id="R`arR3TgNGuz8EatkYr;">speed</variable>
 <variable id="UWOl$s,cq9_S)Qa{ZRk8">MyNormalizedColors</variable>
 <variable id="o%1T-j8O.HwE7?QS24LK">distance</variable>
-<variable id="R`arR3TgNGuz8EatkYr;">speed</variable>
 <variable id="vc]8j=3m6dRdR)X?I=qL">forward</variable>
 <variable id="uJjN|$P.}=4O:6Fa#2s)">angularVelocity</variable>
 <variable id="/s4SpWG}G$qIsDgk]%(K">SetMyColor</variable>
@@ -1687,114 +1687,6 @@ Note that the reported distance is only useful at very close range, and is impac
 </next>
 </block>
 </statement>
-<next>
-<block type="controls_if" id="73[][UNs%N1C#qo%3xKI">
-<mutation elseif="2"/>
-<value name="IF0">
-<block type="logic_compare" id="bMu!q!ZS[u*_fLfZ/^If">
-<field name="OP">LTE</field>
-<value name="A">
-<block type="dcMotor_getProperty_Number" id="Qbsk3#0rvw}kD?K^n/x:">
-<field name="IDENTIFIER">liftAsDcMotor</field>
-<field name="PROP">CurrentPosition</field>
-<data>{"IDENTIFIER":"lift"}</data>
-</block>
-</value>
-<value name="B">
-<block type="math_number" id="%T]zrJYrvV`oWyS^]H+T">
-<field name="NUM">1500</field>
-</block>
-</value>
-</block>
-</value>
-<statement name="DO0">
-<block type="variables_set" id="z4Y#Q{D2^n1o~J~?d[G7">
-<field name="VAR" id="R`arR3TgNGuz8EatkYr;">speed</field>
-<value name="VALUE">
-<block type="math_number" id="-l8888?9/]=H_VQh1(|A">
-<field name="NUM">0.65</field>
-</block>
-</value>
-</block>
-</statement>
-<value name="IF1">
-<block type="logic_operation" id="WW126I2A1g^I,2HmNuGs">
-<field name="OP">AND</field>
-<value name="A">
-<block type="logic_compare" id="T=P?UBLHUO0[RSlP|FP/">
-<field name="OP">LTE</field>
-<value name="A">
-<block type="dcMotor_getProperty_Number" id="@hnz(8ZzgBG!Ro8RC~5`">
-<field name="IDENTIFIER">liftAsDcMotor</field>
-<field name="PROP">CurrentPosition</field>
-<data>{"IDENTIFIER":"lift"}</data>
-</block>
-</value>
-<value name="B">
-<block type="math_number" id="K^S|g;[qwSBO#X#f_*dT">
-<field name="NUM">3200</field>
-</block>
-</value>
-</block>
-</value>
-<value name="B">
-<block type="logic_compare" id="*tU-iDq`Z=SW=|i)*UXB">
-<field name="OP">GT</field>
-<value name="A">
-<block type="dcMotor_getProperty_Number" id="j$C{UP3,tE#k,{VOtgo(">
-<field name="IDENTIFIER">liftAsDcMotor</field>
-<field name="PROP">CurrentPosition</field>
-<data>{"IDENTIFIER":"lift"}</data>
-</block>
-</value>
-<value name="B">
-<block type="math_number" id="RM6x#otbf^H5E_DJpc[3">
-<field name="NUM">1500</field>
-</block>
-</value>
-</block>
-</value>
-</block>
-</value>
-<statement name="DO1">
-<block type="variables_set" id="n07/T`+Ddz=Zoh3^1r0Y">
-<field name="VAR" id="R`arR3TgNGuz8EatkYr;">speed</field>
-<value name="VALUE">
-<block type="math_number" id="mg~:]@1XKqOZv3FWBi]M">
-<field name="NUM">0.5</field>
-</block>
-</value>
-</block>
-</statement>
-<value name="IF2">
-<block type="logic_compare" id="?b|tLMcMXeQ6a0}pR%{i">
-<field name="OP">GT</field>
-<value name="A">
-<block type="dcMotor_getProperty_Number" id="osyYXkyBo,(thDx@p#a#">
-<field name="IDENTIFIER">liftAsDcMotor</field>
-<field name="PROP">CurrentPosition</field>
-<data>{"IDENTIFIER":"lift"}</data>
-</block>
-</value>
-<value name="B">
-<block type="math_number" id="4:]FJMyqmgZYUm4Y1GSI">
-<field name="NUM">3200</field>
-</block>
-</value>
-</block>
-</value>
-<statement name="DO2">
-<block type="variables_set" id="s,WG#z8EZ]7@L+--WGF[">
-<field name="VAR" id="R`arR3TgNGuz8EatkYr;">speed</field>
-<value name="VALUE">
-<block type="math_number" id=";:7$#-.IE)^yyuk=-n_P">
-<field name="NUM">0.3</field>
-</block>
-</value>
-</block>
-</statement>
-</block>
-</next>
 </block>
 </statement>
 <value name="IF2">
@@ -1836,8 +1728,8 @@ Note that the reported distance is only useful at very close range, and is impac
 <block type="procedures_callnoreturn" id="Q;`rW#,nj--yz40?$m6Y">
 <mutation name="lift down"/>
 <next>
-<block type="procedures_callnoreturn" id="od~Ww/`|tH?c;]s6!a{Z">
-<mutation name="rollers stop"/>
+<block type="procedures_callnoreturn" id="b!9_1?H67Wtf%sVrD`Ac">
+<mutation name="rollers sample reset"/>
 <next>
 <block type="procedures_callnoreturn" id="P$==L[[S?=qgm86LtpZ%">
 <mutation name="arm nutral"/>
@@ -1864,124 +1756,6 @@ Note that the reported distance is only useful at very close range, and is impac
 </next>
 </block>
 </statement>
-<next>
-<block type="controls_if" id="PG^$dpk(8+s2~0/OVCdI">
-<mutation elseif="2"/>
-<value name="IF0">
-<block type="logic_compare" id="=BcI]zd0;AK%ucNcB{4h">
-<field name="OP">LTE</field>
-<value name="A">
-<block type="dcMotor_getProperty_Number" id="BgV1p,nhC)Vwj![Z5kP#">
-<field name="IDENTIFIER">liftAsDcMotor</field>
-<field name="PROP">CurrentPosition</field>
-<data>{"IDENTIFIER":"lift"}</data>
-</block>
-</value>
-<value name="B">
-<block type="math_number" id=".=6F;+S`r$)!rErWz-x)">
-<field name="NUM">1500</field>
-</block>
-</value>
-</block>
-</value>
-<statement name="DO0">
-<block type="variables_set" id="OWGS4I|f8JOON=p!])IV">
-<field name="VAR" id="R`arR3TgNGuz8EatkYr;">speed</field>
-<value name="VALUE">
-<block type="math_number" id="CB,7}~JtPguf]pps3/mt">
-<field name="NUM">0.65</field>
-</block>
-</value>
-</block>
-</statement>
-<value name="IF1">
-<block type="logic_operation" id="b-zMr|0]mejgyi)SvoRQ">
-<field name="OP">AND</field>
-<value name="A">
-<block type="logic_compare" id="VXdhjJQg?7Os/uAo@3Ps">
-<field name="OP">LTE</field>
-<value name="A">
-<block type="dcMotor_getProperty_Number" id="q:37Bx:ztFV(lorWP=pa">
-<field name="IDENTIFIER">liftAsDcMotor</field>
-<field name="PROP">CurrentPosition</field>
-<data>{"IDENTIFIER":"lift"}</data>
-</block>
-</value>
-<value name="B">
-<block type="math_number" id="uNgjgY,Q*KdFsRZR5~$=">
-<field name="NUM">3200</field>
-</block>
-</value>
-</block>
-</value>
-<value name="B">
-<block type="logic_compare" id="7Ukm(!GSaaH.#6u)!aa6">
-<field name="OP">GT</field>
-<value name="A">
-<block type="dcMotor_getProperty_Number" id="d|Hzl!@ySMVa$4skZf#%">
-<field name="IDENTIFIER">liftAsDcMotor</field>
-<field name="PROP">CurrentPosition</field>
-<data>{"IDENTIFIER":"lift"}</data>
-</block>
-</value>
-<value name="B">
-<block type="math_number" id="O[;cWL2[$YvsNzC%d[sB">
-<field name="NUM">1500</field>
-</block>
-</value>
-</block>
-</value>
-</block>
-</value>
-<statement name="DO1">
-<block type="variables_set" id="fRaG!^_x!.mYn[qjK~Dp">
-<field name="VAR" id="R`arR3TgNGuz8EatkYr;">speed</field>
-<value name="VALUE">
-<block type="math_number" id="Tx$`s;t@nKQ@[~_(ZGHM">
-<field name="NUM">0.5</field>
-</block>
-</value>
-</block>
-</statement>
-<value name="IF2">
-<block type="logic_compare" id="}O2S|L~PPfRSc{CR4%Cd">
-<field name="OP">GT</field>
-<value name="A">
-<block type="dcMotor_getProperty_Number" id="IZiFwA~^Fd*Ki}(eJVf|">
-<field name="IDENTIFIER">liftAsDcMotor</field>
-<field name="PROP">CurrentPosition</field>
-<data>{"IDENTIFIER":"lift"}</data>
-</block>
-</value>
-<value name="B">
-<block type="math_number" id="L%K/Yssl8BpIuOovgm9i">
-<field name="NUM">3200</field>
-</block>
-</value>
-</block>
-</value>
-<statement name="DO2">
-<block type="variables_set" id="7-CL=*SsJbA=C(a%+-eG">
-<field name="VAR" id="R`arR3TgNGuz8EatkYr;">speed</field>
-<value name="VALUE">
-<block type="math_number" id="i^z9mI8a?ft$v?=xfMM/">
-<field name="NUM">0.3</field>
-</block>
-</value>
-</block>
-</statement>
-<next>
-<block type="variables_set" id="-L;m#Dm+=cG{#ey4VpIE">
-<field name="VAR" id=";)Fh7D{ut!+O@?uHLGJd">state machine</field>
-<value name="VALUE">
-<block type="math_number" id="3MQXHTa.y,=-sN@W^~}%">
-<field name="NUM">1</field>
-</block>
-</value>
-</block>
-</next>
-</block>
-</next>
 </block>
 </statement>
 <value name="IF3">
@@ -2132,6 +1906,153 @@ Note that the reported distance is only useful at very close range, and is impac
 </next>
 </block>
 </statement>
+<next>
+<block type="controls_if" id="3kzsbLGy9iS0,fNNKAk.">
+<value name="IF0">
+<block type="logic_operation" id="M;Uf;E}cYHzb2a?X,mJ@">
+<field name="OP">OR</field>
+<value name="A">
+<block type="logic_compare" id="nQuS[?~ob`lCzF]{lE@4">
+<field name="OP">NEQ</field>
+<value name="A">
+<block type="variables_get" id="oGs]C71Cfzk`ogD%+I9u">
+<field name="VAR" id=";)Fh7D{ut!+O@?uHLGJd">state machine</field>
+</block>
+</value>
+<value name="B">
+<block type="math_number" id="4FnBPi1pejH,I[Niw`[F">
+<field name="NUM">2</field>
+</block>
+</value>
+</block>
+</value>
+<value name="B">
+<block type="logic_compare" id="$KUbmwikois2Yk[mYQF`">
+<field name="OP">NEQ</field>
+<value name="A">
+<block type="variables_get" id=":t$`WLO~1$~HmcvNd~vX">
+<field name="VAR" id=";)Fh7D{ut!+O@?uHLGJd">state machine</field>
+</block>
+</value>
+<value name="B">
+<block type="math_number" id="zvX|2B5rNr=SQ-HVz@z/">
+<field name="NUM">2.5</field>
+</block>
+</value>
+</block>
+</value>
+</block>
+</value>
+<statement name="DO0">
+<block type="controls_if" id="PG^$dpk(8+s2~0/OVCdI">
+<mutation elseif="2"/>
+<value name="IF0">
+<block type="logic_compare" id="=BcI]zd0;AK%ucNcB{4h">
+<field name="OP">LTE</field>
+<value name="A">
+<block type="dcMotor_getProperty_Number" id="BgV1p,nhC)Vwj![Z5kP#">
+<field name="IDENTIFIER">liftAsDcMotor</field>
+<field name="PROP">CurrentPosition</field>
+<data>{"IDENTIFIER":"lift"}</data>
+</block>
+</value>
+<value name="B">
+<block type="math_number" id=".=6F;+S`r$)!rErWz-x)">
+<field name="NUM">1500</field>
+</block>
+</value>
+</block>
+</value>
+<statement name="DO0">
+<block type="variables_set" id="OWGS4I|f8JOON=p!])IV">
+<field name="VAR" id="R`arR3TgNGuz8EatkYr;">speed</field>
+<value name="VALUE">
+<block type="math_number" id="CB,7}~JtPguf]pps3/mt">
+<field name="NUM">0.7</field>
+</block>
+</value>
+</block>
+</statement>
+<value name="IF1">
+<block type="logic_operation" id="b-zMr|0]mejgyi)SvoRQ">
+<field name="OP">AND</field>
+<value name="A">
+<block type="logic_compare" id="VXdhjJQg?7Os/uAo@3Ps">
+<field name="OP">LTE</field>
+<value name="A">
+<block type="dcMotor_getProperty_Number" id="q:37Bx:ztFV(lorWP=pa">
+<field name="IDENTIFIER">liftAsDcMotor</field>
+<field name="PROP">CurrentPosition</field>
+<data>{"IDENTIFIER":"lift"}</data>
+</block>
+</value>
+<value name="B">
+<block type="math_number" id="uNgjgY,Q*KdFsRZR5~$=">
+<field name="NUM">3200</field>
+</block>
+</value>
+</block>
+</value>
+<value name="B">
+<block type="logic_compare" id="7Ukm(!GSaaH.#6u)!aa6">
+<field name="OP">GT</field>
+<value name="A">
+<block type="dcMotor_getProperty_Number" id="d|Hzl!@ySMVa$4skZf#%">
+<field name="IDENTIFIER">liftAsDcMotor</field>
+<field name="PROP">CurrentPosition</field>
+<data>{"IDENTIFIER":"lift"}</data>
+</block>
+</value>
+<value name="B">
+<block type="math_number" id="O[;cWL2[$YvsNzC%d[sB">
+<field name="NUM">1500</field>
+</block>
+</value>
+</block>
+</value>
+</block>
+</value>
+<statement name="DO1">
+<block type="variables_set" id="fRaG!^_x!.mYn[qjK~Dp">
+<field name="VAR" id="R`arR3TgNGuz8EatkYr;">speed</field>
+<value name="VALUE">
+<block type="math_number" id="Tx$`s;t@nKQ@[~_(ZGHM">
+<field name="NUM">0.5</field>
+</block>
+</value>
+</block>
+</statement>
+<value name="IF2">
+<block type="logic_compare" id="}O2S|L~PPfRSc{CR4%Cd">
+<field name="OP">GT</field>
+<value name="A">
+<block type="dcMotor_getProperty_Number" id="IZiFwA~^Fd*Ki}(eJVf|">
+<field name="IDENTIFIER">liftAsDcMotor</field>
+<field name="PROP">CurrentPosition</field>
+<data>{"IDENTIFIER":"lift"}</data>
+</block>
+</value>
+<value name="B">
+<block type="math_number" id="L%K/Yssl8BpIuOovgm9i">
+<field name="NUM">3200</field>
+</block>
+</value>
+</block>
+</value>
+<statement name="DO2">
+<block type="variables_set" id="7-CL=*SsJbA=C(a%+-eG">
+<field name="VAR" id="R`arR3TgNGuz8EatkYr;">speed</field>
+<value name="VALUE">
+<block type="math_number" id="i^z9mI8a?ft$v?=xfMM/">
+<field name="NUM">0.3</field>
+</block>
+</value>
+</block>
+</statement>
+</block>
+</statement>
+</block>
+</next>
 </block>
 </next>
 </block>
@@ -3057,7 +2978,7 @@ Note that the reported distance is only useful at very close range, and is impac
 <data>{"IDENTIFIER":"arm"}</data>
 <value name="VALUE">
 <shadow type="math_number" id="A|V]Eg|8Adcx;LBO{6E]">
-<field name="NUM">0.6</field>
+<field name="NUM">1</field>
 </shadow>
 </value>
 </block>
@@ -3371,7 +3292,7 @@ Note that the reported distance is only useful at very close range, and is impac
 <data>{"IDENTIFIER":"lift"}</data>
 <value name="VALUE">
 <shadow type="math_number" id="h1fW(7[[%_xId6Z_s(0.">
-<field name="NUM">6300</field>
+<field name="NUM">6215</field>
 </shadow>
 </value>
 <next>
@@ -3411,7 +3332,7 @@ Note that the reported distance is only useful at very close range, and is impac
 <data>{"IDENTIFIER":"lift2"}</data>
 <value name="VALUE">
 <shadow type="math_number" id="==0E%,Q4H^!~L*-F$GK*">
-<field name="NUM">6300</field>
+<field name="NUM">6215</field>
 </shadow>
 </value>
 <next>
@@ -3517,7 +3438,7 @@ Note that the reported distance is only useful at very close range, and is impac
 <data>{"IDENTIFIER":"lower roller"}</data>
 <value name="VALUE">
 <shadow type="math_number" id="euyP_r/Vd,M$b(Z;i@)r">
-<field name="NUM">-0.65</field>
+<field name="NUM">-0.7</field>
 </shadow>
 </value>
 <next>
@@ -3527,7 +3448,7 @@ Note that the reported distance is only useful at very close range, and is impac
 <data>{"IDENTIFIER":"upper roller"}</data>
 <value name="VALUE">
 <shadow type="math_number" id="5o0`?urmD+J)y4h:,gC+">
-<field name="NUM">-0.65</field>
+<field name="NUM">-0.7</field>
 </shadow>
 </value>
 </block>
@@ -3606,6 +3527,34 @@ Note that the reported distance is only useful at very close range, and is impac
 </next>
 </block>
 </next>
+</block>
+</next>
+</block>
+</statement>
+</block>
+<block type="procedures_defnoreturn" id="aZb|L!0Pyp}I1t!)/JDQ" x="1392" y="543">
+<field name="NAME">rollers sample reset</field>
+<comment pinned="false" h="80" w="160">Describe this function...</comment>
+<statement name="STACK">
+<block type="crServo_setProperty_Number" id="{6Ujf5Z9f{zNl#M=MPmg">
+<field name="IDENTIFIER">lowerrollerAsCRServo</field>
+<field name="PROP">Power</field>
+<data>{"IDENTIFIER":"lower roller"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="(qrFNAdvddN?loGP|(|C">
+<field name="NUM">-0.1</field>
+</shadow>
+</value>
+<next>
+<block type="crServo_setProperty_Number" id="h?GAc)yjo1I!B.!#2xnL">
+<field name="IDENTIFIER">upperrollerAsCRServo</field>
+<field name="PROP">Power</field>
+<data>{"IDENTIFIER":"upper roller"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="*y0g[dUaOXFJ?3b?Iuc+">
+<field name="NUM">0.3</field>
+</shadow>
+</value>
 </block>
 </next>
 </block>
@@ -3892,7 +3841,7 @@ Note that the reported distance is only useful at very close range, and is impac
 <data>{"IDENTIFIER":"wrist"}</data>
 <value name="VALUE">
 <shadow type="math_number" id="a{tOhRfYW6|LR+o*?VvX">
-<field name="NUM">0.64</field>
+<field name="NUM">0.63</field>
 </shadow>
 </value>
 </block>
@@ -4443,7 +4392,277 @@ Note that the reported distance is only useful at very close range, and is impac
 </block>
 </statement>
 </block>
-<block type="procedures_defnoreturn" id="6Iix;+nAmlKO@8vWZLSP" x="52" y="1345">
+<block type="procedures_defnoreturn" id="}5/7*w]^=3:;hXsl*/In" x="542" y="1330">
+<field name="NAME">Wrist</field>
+<comment pinned="false" h="80" w="160">Describe this function...</comment>
+<statement name="STACK">
+<block type="controls_if" id="~(rDX#fHvPjW`$u45i*C">
+<mutation elseif="1"/>
+<value name="IF0">
+<block type="gamepad_getProperty_Boolean" id="YKwFr`s{Xw:vr(}y|cUY">
+<field name="IDENTIFIER">gamepad2</field>
+<field name="PROP">DpadDown</field>
+<data>{"IDENTIFIER":"gamepad2"}</data>
+</block>
+</value>
+<statement name="DO0">
+<block type="procedures_callnoreturn" id="BM4t7rRle,h6=179x05@">
+<mutation name="wrist pickup"/>
+</block>
+</statement>
+<value name="IF1">
+<block type="gamepad_getProperty_Boolean" id="IDi^}b)P2{GGisvfDL@_">
+<field name="IDENTIFIER">gamepad2</field>
+<field name="PROP">DpadUp</field>
+<data>{"IDENTIFIER":"gamepad2"}</data>
+</block>
+</value>
+<statement name="DO1">
+<block type="procedures_callnoreturn" id="xOf+@bw|G`x2jE-wf|kE">
+<mutation name="wrist score"/>
+</block>
+</statement>
+</block>
+</statement>
+</block>
+<block type="procedures_defnoreturn" id="H@?y6%zt4c5Uaau9$1TN" x="-1691" y="1486">
+<field name="NAME">Lift Manual</field>
+<comment pinned="false" h="80" w="160">Describe this function...</comment>
+<statement name="STACK">
+<block type="controls_if" id=";5kC3v6~N6?Y($~OE_5E">
+<value name="IF0">
+<block type="touchSensor_getProperty_Boolean" id="4M*~EpMLP}hP`5]adM4s">
+<field name="IDENTIFIER">Limit_SwitchAsTouchSensor</field>
+<field name="PROP">IsPressed</field>
+<data>{"IDENTIFIER":"Limit_Switch"}</data>
+</block>
+</value>
+<statement name="DO0">
+<block type="procedures_callnoreturn" id="ALWqOOe8r$v29XAD.D@K">
+<mutation name="Lift init"/>
+</block>
+</statement>
+<next>
+<block type="controls_if" id="@lHuS8TefR:h%{j`EyKR">
+<mutation elseif="1"/>
+<value name="IF0">
+<block type="logic_compare" id=";0qo)s$nqB3g?T|gW$Jc">
+<field name="OP">GT</field>
+<value name="A">
+<block type="gamepad_getProperty_Number" id="[FP*C5dD~pX8uj@!@tkV">
+<field name="IDENTIFIER">gamepad2</field>
+<field name="PROP">LeftStickY</field>
+<data>{"IDENTIFIER":"gamepad2"}</data>
+</block>
+</value>
+<value name="B">
+<block type="math_number" id="l]Pd}}a7:[UN_j$Knp5T">
+<field name="NUM">0.5</field>
+</block>
+</value>
+</block>
+</value>
+<statement name="DO0">
+<block type="dcMotor_setProperty_Number" id="JG;y*5RI=2Ks17~e9V$L">
+<field name="IDENTIFIER">lift2AsDcMotor</field>
+<field name="PROP">Power</field>
+<data>{"IDENTIFIER":"lift2"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="[#Y]1au:(F#g~jY8_39h">
+<field name="NUM">1</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_Number" id="7/,M[P.GCJWs{TT8Nl5g">
+<field name="IDENTIFIER">liftAsDcMotor</field>
+<field name="PROP">Power</field>
+<data>{"IDENTIFIER":"lift"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="-@s]$y/^A*xj%Jlsm-Kl">
+<field name="NUM">1</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_Number" id="A/KC=_#Riy1@!~Zf_G5_">
+<field name="IDENTIFIER">liftAsDcMotor</field>
+<field name="PROP">TargetPosition</field>
+<data>{"IDENTIFIER":"lift"}</data>
+<value name="VALUE">
+<shadow type="math_number">
+<field name="NUM">0</field>
+</shadow>
+<block type="math_arithmetic" id="T})zCxTb#h`tRy.wQ,7Q">
+<field name="OP">ADD</field>
+<value name="A">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="dcMotor_getProperty_Number" id="BTk7?VSi4vg1!0Tt}4I(">
+<field name="IDENTIFIER">liftAsDcMotor</field>
+<field name="PROP">CurrentPosition</field>
+<data>{"IDENTIFIER":"lift"}</data>
+</block>
+</value>
+<value name="B">
+<shadow type="math_number" id="4tpBbY?DHhzq3-I0dGzy">
+<field name="NUM">10</field>
+</shadow>
+</value>
+</block>
+</value>
+<next>
+<block type="dcMotor_setProperty_Number" id="W8!?02q0|ZRcGtdn|f:}">
+<field name="IDENTIFIER">lift2AsDcMotor</field>
+<field name="PROP">TargetPosition</field>
+<data>{"IDENTIFIER":"lift2"}</data>
+<value name="VALUE">
+<shadow type="math_number">
+<field name="NUM">0</field>
+</shadow>
+<block type="math_arithmetic" id="{/.-)Oq~(XC3KZg,zxd?">
+<field name="OP">ADD</field>
+<value name="A">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="dcMotor_getProperty_Number" id="wH4VwP-#z_e.U,xsXuL1">
+<field name="IDENTIFIER">lift2AsDcMotor</field>
+<field name="PROP">CurrentPosition</field>
+<data>{"IDENTIFIER":"lift2"}</data>
+</block>
+</value>
+<value name="B">
+<shadow type="math_number" id="H(OBKr9Z7:u`{,.~X$vq">
+<field name="NUM">10</field>
+</shadow>
+</value>
+</block>
+</value>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+<value name="IF1">
+<block type="logic_compare" id="yV:k7DJ77O};3[.s)[qP">
+<field name="OP">LT</field>
+<value name="A">
+<block type="gamepad_getProperty_Number" id="z0Wu!o;67JDsck5C=5Gf">
+<field name="IDENTIFIER">gamepad2</field>
+<field name="PROP">LeftStickY</field>
+<data>{"IDENTIFIER":"gamepad2"}</data>
+</block>
+</value>
+<value name="B">
+<block type="math_number" id="Bv+`lWfFBVD(ME7{jN{s">
+<field name="NUM">-0.5</field>
+</block>
+</value>
+</block>
+</value>
+<statement name="DO1">
+<block type="dcMotor_setProperty_Number" id="[:Vw?3R1#o{o{)VXB@O{">
+<field name="IDENTIFIER">liftAsDcMotor</field>
+<field name="PROP">Power</field>
+<data>{"IDENTIFIER":"lift"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="Ep;=q2(8OlA8QCDo/dlx">
+<field name="NUM">1</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_Number" id="oUeF@)|x`wodC.yBmUo=">
+<field name="IDENTIFIER">lift2AsDcMotor</field>
+<field name="PROP">Power</field>
+<data>{"IDENTIFIER":"lift2"}</data>
+<value name="VALUE">
+<shadow type="math_number" id="}dtWgX%r)l0s0Xg/,,9-">
+<field name="NUM">1</field>
+</shadow>
+</value>
+<next>
+<block type="dcMotor_setProperty_Number" id="|D`.7T%esNhrxasaYff?">
+<field name="IDENTIFIER">liftAsDcMotor</field>
+<field name="PROP">TargetPosition</field>
+<data>{"IDENTIFIER":"lift"}</data>
+<value name="VALUE">
+<shadow type="math_number">
+<field name="NUM">0</field>
+</shadow>
+<block type="math_arithmetic" id="ks1+J#_4Tlb.mmUtTe4U">
+<field name="OP">MINUS</field>
+<value name="A">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="dcMotor_getProperty_Number" id="sWld@iVFq|n-7WG}Z~wM">
+<field name="IDENTIFIER">liftAsDcMotor</field>
+<field name="PROP">CurrentPosition</field>
+<data>{"IDENTIFIER":"lift"}</data>
+</block>
+</value>
+<value name="B">
+<shadow type="math_number" id="8.QJhdYDi-F$q`U*7pJd">
+<field name="NUM">10</field>
+</shadow>
+</value>
+</block>
+</value>
+<next>
+<block type="dcMotor_setProperty_Number" id="amaA=%w!K|c$sc]AjY1A">
+<field name="IDENTIFIER">lift2AsDcMotor</field>
+<field name="PROP">TargetPosition</field>
+<data>{"IDENTIFIER":"lift2"}</data>
+<value name="VALUE">
+<shadow type="math_number">
+<field name="NUM">0</field>
+</shadow>
+<block type="math_arithmetic" id="Hj+$m6UI%)]~Nb*eZZe!">
+<field name="OP">MINUS</field>
+<value name="A">
+<shadow type="math_number">
+<field name="NUM">1</field>
+</shadow>
+<block type="dcMotor_getProperty_Number" id="Xdp#c2NLQm%IqCr}a[G:">
+<field name="IDENTIFIER">lift2AsDcMotor</field>
+<field name="PROP">CurrentPosition</field>
+<data>{"IDENTIFIER":"lift2"}</data>
+</block>
+</value>
+<value name="B">
+<shadow type="math_number" id="ag3tv4NN:+T:G5t;~|g]">
+<field name="NUM">10</field>
+</shadow>
+</value>
+</block>
+</value>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+</block>
+</next>
+</block>
+</statement>
+</block>
+<block type="procedures_callnoreturn" id="Y#P-2_jzm`hb1B_7Ng,j" x="2701" y="1317">
+<mutation name="set state machine">
+<arg name="color"/>
+</mutation>
+<value name="ARG0">
+<block type="text" id="4E8+8#`pBh8Y-`Vsy[#E">
+<field name="TEXT">#330000</field>
+</block>
+</value>
+</block>
+<block type="procedures_defnoreturn" id="6Iix;+nAmlKO@8vWZLSP" x="71" y="1525">
 <field name="NAME">Loging</field>
 <comment pinned="false" h="80" w="160">Describe this function...</comment>
 <statement name="STACK">
@@ -4772,276 +4991,6 @@ Note that the reported distance is only useful at very close range, and is impac
 </block>
 </statement>
 </block>
-<block type="procedures_defnoreturn" id="}5/7*w]^=3:;hXsl*/In" x="542" y="1330">
-<field name="NAME">Wrist</field>
-<comment pinned="false" h="80" w="160">Describe this function...</comment>
-<statement name="STACK">
-<block type="controls_if" id="~(rDX#fHvPjW`$u45i*C">
-<mutation elseif="1"/>
-<value name="IF0">
-<block type="gamepad_getProperty_Boolean" id="YKwFr`s{Xw:vr(}y|cUY">
-<field name="IDENTIFIER">gamepad2</field>
-<field name="PROP">DpadDown</field>
-<data>{"IDENTIFIER":"gamepad2"}</data>
-</block>
-</value>
-<statement name="DO0">
-<block type="procedures_callnoreturn" id="BM4t7rRle,h6=179x05@">
-<mutation name="wrist pickup"/>
-</block>
-</statement>
-<value name="IF1">
-<block type="gamepad_getProperty_Boolean" id="IDi^}b)P2{GGisvfDL@_">
-<field name="IDENTIFIER">gamepad2</field>
-<field name="PROP">DpadUp</field>
-<data>{"IDENTIFIER":"gamepad2"}</data>
-</block>
-</value>
-<statement name="DO1">
-<block type="procedures_callnoreturn" id="xOf+@bw|G`x2jE-wf|kE">
-<mutation name="wrist score"/>
-</block>
-</statement>
-</block>
-</statement>
-</block>
-<block type="procedures_defnoreturn" id="H@?y6%zt4c5Uaau9$1TN" x="-1691" y="1486">
-<field name="NAME">Lift Manual</field>
-<comment pinned="false" h="80" w="160">Describe this function...</comment>
-<statement name="STACK">
-<block type="controls_if" id=";5kC3v6~N6?Y($~OE_5E">
-<value name="IF0">
-<block type="touchSensor_getProperty_Boolean" id="4M*~EpMLP}hP`5]adM4s">
-<field name="IDENTIFIER">Limit_SwitchAsTouchSensor</field>
-<field name="PROP">IsPressed</field>
-<data>{"IDENTIFIER":"Limit_Switch"}</data>
-</block>
-</value>
-<statement name="DO0">
-<block type="procedures_callnoreturn" id="ALWqOOe8r$v29XAD.D@K">
-<mutation name="Lift init"/>
-</block>
-</statement>
-<next>
-<block type="controls_if" id="@lHuS8TefR:h%{j`EyKR">
-<mutation elseif="1"/>
-<value name="IF0">
-<block type="logic_compare" id=";0qo)s$nqB3g?T|gW$Jc">
-<field name="OP">GT</field>
-<value name="A">
-<block type="gamepad_getProperty_Number" id="[FP*C5dD~pX8uj@!@tkV">
-<field name="IDENTIFIER">gamepad2</field>
-<field name="PROP">LeftStickY</field>
-<data>{"IDENTIFIER":"gamepad2"}</data>
-</block>
-</value>
-<value name="B">
-<block type="math_number" id="l]Pd}}a7:[UN_j$Knp5T">
-<field name="NUM">0.5</field>
-</block>
-</value>
-</block>
-</value>
-<statement name="DO0">
-<block type="dcMotor_setProperty_Number" id="JG;y*5RI=2Ks17~e9V$L">
-<field name="IDENTIFIER">lift2AsDcMotor</field>
-<field name="PROP">Power</field>
-<data>{"IDENTIFIER":"lift2"}</data>
-<value name="VALUE">
-<shadow type="math_number" id="[#Y]1au:(F#g~jY8_39h">
-<field name="NUM">1</field>
-</shadow>
-</value>
-<next>
-<block type="dcMotor_setProperty_Number" id="7/,M[P.GCJWs{TT8Nl5g">
-<field name="IDENTIFIER">liftAsDcMotor</field>
-<field name="PROP">Power</field>
-<data>{"IDENTIFIER":"lift"}</data>
-<value name="VALUE">
-<shadow type="math_number" id="-@s]$y/^A*xj%Jlsm-Kl">
-<field name="NUM">1</field>
-</shadow>
-</value>
-<next>
-<block type="dcMotor_setProperty_Number" id="A/KC=_#Riy1@!~Zf_G5_">
-<field name="IDENTIFIER">liftAsDcMotor</field>
-<field name="PROP">TargetPosition</field>
-<data>{"IDENTIFIER":"lift"}</data>
-<value name="VALUE">
-<shadow type="math_number">
-<field name="NUM">0</field>
-</shadow>
-<block type="math_arithmetic" id="T})zCxTb#h`tRy.wQ,7Q">
-<field name="OP">ADD</field>
-<value name="A">
-<shadow type="math_number">
-<field name="NUM">1</field>
-</shadow>
-<block type="dcMotor_getProperty_Number" id="BTk7?VSi4vg1!0Tt}4I(">
-<field name="IDENTIFIER">liftAsDcMotor</field>
-<field name="PROP">CurrentPosition</field>
-<data>{"IDENTIFIER":"lift"}</data>
-</block>
-</value>
-<value name="B">
-<shadow type="math_number" id="4tpBbY?DHhzq3-I0dGzy">
-<field name="NUM">10</field>
-</shadow>
-</value>
-</block>
-</value>
-<next>
-<block type="dcMotor_setProperty_Number" id="W8!?02q0|ZRcGtdn|f:}">
-<field name="IDENTIFIER">lift2AsDcMotor</field>
-<field name="PROP">TargetPosition</field>
-<data>{"IDENTIFIER":"lift2"}</data>
-<value name="VALUE">
-<shadow type="math_number">
-<field name="NUM">0</field>
-</shadow>
-<block type="math_arithmetic" id="{/.-)Oq~(XC3KZg,zxd?">
-<field name="OP">ADD</field>
-<value name="A">
-<shadow type="math_number">
-<field name="NUM">1</field>
-</shadow>
-<block type="dcMotor_getProperty_Number" id="wH4VwP-#z_e.U,xsXuL1">
-<field name="IDENTIFIER">lift2AsDcMotor</field>
-<field name="PROP">CurrentPosition</field>
-<data>{"IDENTIFIER":"lift2"}</data>
-</block>
-</value>
-<value name="B">
-<shadow type="math_number" id="H(OBKr9Z7:u`{,.~X$vq">
-<field name="NUM">10</field>
-</shadow>
-</value>
-</block>
-</value>
-</block>
-</next>
-</block>
-</next>
-</block>
-</next>
-</block>
-</statement>
-<value name="IF1">
-<block type="logic_compare" id="yV:k7DJ77O};3[.s)[qP">
-<field name="OP">LT</field>
-<value name="A">
-<block type="gamepad_getProperty_Number" id="z0Wu!o;67JDsck5C=5Gf">
-<field name="IDENTIFIER">gamepad2</field>
-<field name="PROP">LeftStickY</field>
-<data>{"IDENTIFIER":"gamepad2"}</data>
-</block>
-</value>
-<value name="B">
-<block type="math_number" id="Bv+`lWfFBVD(ME7{jN{s">
-<field name="NUM">-0.5</field>
-</block>
-</value>
-</block>
-</value>
-<statement name="DO1">
-<block type="dcMotor_setProperty_Number" id="[:Vw?3R1#o{o{)VXB@O{">
-<field name="IDENTIFIER">liftAsDcMotor</field>
-<field name="PROP">Power</field>
-<data>{"IDENTIFIER":"lift"}</data>
-<value name="VALUE">
-<shadow type="math_number" id="Ep;=q2(8OlA8QCDo/dlx">
-<field name="NUM">1</field>
-</shadow>
-</value>
-<next>
-<block type="dcMotor_setProperty_Number" id="oUeF@)|x`wodC.yBmUo=">
-<field name="IDENTIFIER">lift2AsDcMotor</field>
-<field name="PROP">Power</field>
-<data>{"IDENTIFIER":"lift2"}</data>
-<value name="VALUE">
-<shadow type="math_number" id="}dtWgX%r)l0s0Xg/,,9-">
-<field name="NUM">1</field>
-</shadow>
-</value>
-<next>
-<block type="dcMotor_setProperty_Number" id="|D`.7T%esNhrxasaYff?">
-<field name="IDENTIFIER">liftAsDcMotor</field>
-<field name="PROP">TargetPosition</field>
-<data>{"IDENTIFIER":"lift"}</data>
-<value name="VALUE">
-<shadow type="math_number">
-<field name="NUM">0</field>
-</shadow>
-<block type="math_arithmetic" id="ks1+J#_4Tlb.mmUtTe4U">
-<field name="OP">MINUS</field>
-<value name="A">
-<shadow type="math_number">
-<field name="NUM">1</field>
-</shadow>
-<block type="dcMotor_getProperty_Number" id="sWld@iVFq|n-7WG}Z~wM">
-<field name="IDENTIFIER">liftAsDcMotor</field>
-<field name="PROP">CurrentPosition</field>
-<data>{"IDENTIFIER":"lift"}</data>
-</block>
-</value>
-<value name="B">
-<shadow type="math_number" id="8.QJhdYDi-F$q`U*7pJd">
-<field name="NUM">10</field>
-</shadow>
-</value>
-</block>
-</value>
-<next>
-<block type="dcMotor_setProperty_Number" id="amaA=%w!K|c$sc]AjY1A">
-<field name="IDENTIFIER">lift2AsDcMotor</field>
-<field name="PROP">TargetPosition</field>
-<data>{"IDENTIFIER":"lift2"}</data>
-<value name="VALUE">
-<shadow type="math_number">
-<field name="NUM">0</field>
-</shadow>
-<block type="math_arithmetic" id="Hj+$m6UI%)]~Nb*eZZe!">
-<field name="OP">MINUS</field>
-<value name="A">
-<shadow type="math_number">
-<field name="NUM">1</field>
-</shadow>
-<block type="dcMotor_getProperty_Number" id="Xdp#c2NLQm%IqCr}a[G:">
-<field name="IDENTIFIER">lift2AsDcMotor</field>
-<field name="PROP">CurrentPosition</field>
-<data>{"IDENTIFIER":"lift2"}</data>
-</block>
-</value>
-<value name="B">
-<shadow type="math_number" id="ag3tv4NN:+T:G5t;~|g]">
-<field name="NUM">10</field>
-</shadow>
-</value>
-</block>
-</value>
-</block>
-</next>
-</block>
-</next>
-</block>
-</next>
-</block>
-</statement>
-</block>
-</next>
-</block>
-</statement>
-</block>
-<block type="procedures_callnoreturn" id="Y#P-2_jzm`hb1B_7Ng,j" x="2701" y="1317">
-<mutation name="set state machine">
-<arg name="color"/>
-</mutation>
-<value name="ARG0">
-<block type="text" id="4E8+8#`pBh8Y-`Vsy[#E">
-<field name="TEXT">#330000</field>
-</block>
-</value>
-</block>
 <block type="procedures_defnoreturn" id="xg)}Zj=udFZxq8i-U*rE" x="544" y="1505">
 <field name="NAME">Rollers</field>
 <comment pinned="false" h="80" w="160">Describe this function...</comment>
@@ -5293,6 +5242,112 @@ Note that the reported distance is only useful at very close range, and is impac
 </block>
 </statement>
 </block>
+<block type="controls_if" id="73[][UNs%N1C#qo%3xKI" x="2490" y="1689">
+<mutation elseif="2"/>
+<value name="IF0">
+<block type="logic_compare" id="bMu!q!ZS[u*_fLfZ/^If">
+<field name="OP">LTE</field>
+<value name="A">
+<block type="dcMotor_getProperty_Number" id="Qbsk3#0rvw}kD?K^n/x:">
+<field name="IDENTIFIER">liftAsDcMotor</field>
+<field name="PROP">CurrentPosition</field>
+<data>{"IDENTIFIER":"lift"}</data>
+</block>
+</value>
+<value name="B">
+<block type="math_number" id="%T]zrJYrvV`oWyS^]H+T">
+<field name="NUM">1500</field>
+</block>
+</value>
+</block>
+</value>
+<statement name="DO0">
+<block type="variables_set" id="z4Y#Q{D2^n1o~J~?d[G7">
+<field name="VAR" id="R`arR3TgNGuz8EatkYr;">speed</field>
+<value name="VALUE">
+<block type="math_number" id="-l8888?9/]=H_VQh1(|A">
+<field name="NUM">0.65</field>
+</block>
+</value>
+</block>
+</statement>
+<value name="IF1">
+<block type="logic_operation" id="WW126I2A1g^I,2HmNuGs">
+<field name="OP">AND</field>
+<value name="A">
+<block type="logic_compare" id="T=P?UBLHUO0[RSlP|FP/">
+<field name="OP">LTE</field>
+<value name="A">
+<block type="dcMotor_getProperty_Number" id="@hnz(8ZzgBG!Ro8RC~5`">
+<field name="IDENTIFIER">liftAsDcMotor</field>
+<field name="PROP">CurrentPosition</field>
+<data>{"IDENTIFIER":"lift"}</data>
+</block>
+</value>
+<value name="B">
+<block type="math_number" id="K^S|g;[qwSBO#X#f_*dT">
+<field name="NUM">3200</field>
+</block>
+</value>
+</block>
+</value>
+<value name="B">
+<block type="logic_compare" id="*tU-iDq`Z=SW=|i)*UXB">
+<field name="OP">GT</field>
+<value name="A">
+<block type="dcMotor_getProperty_Number" id="j$C{UP3,tE#k,{VOtgo(">
+<field name="IDENTIFIER">liftAsDcMotor</field>
+<field name="PROP">CurrentPosition</field>
+<data>{"IDENTIFIER":"lift"}</data>
+</block>
+</value>
+<value name="B">
+<block type="math_number" id="RM6x#otbf^H5E_DJpc[3">
+<field name="NUM">1500</field>
+</block>
+</value>
+</block>
+</value>
+</block>
+</value>
+<statement name="DO1">
+<block type="variables_set" id="n07/T`+Ddz=Zoh3^1r0Y">
+<field name="VAR" id="R`arR3TgNGuz8EatkYr;">speed</field>
+<value name="VALUE">
+<block type="math_number" id="mg~:]@1XKqOZv3FWBi]M">
+<field name="NUM">0.5</field>
+</block>
+</value>
+</block>
+</statement>
+<value name="IF2">
+<block type="logic_compare" id="?b|tLMcMXeQ6a0}pR%{i">
+<field name="OP">GT</field>
+<value name="A">
+<block type="dcMotor_getProperty_Number" id="osyYXkyBo,(thDx@p#a#">
+<field name="IDENTIFIER">liftAsDcMotor</field>
+<field name="PROP">CurrentPosition</field>
+<data>{"IDENTIFIER":"lift"}</data>
+</block>
+</value>
+<value name="B">
+<block type="math_number" id="4:]FJMyqmgZYUm4Y1GSI">
+<field name="NUM">3200</field>
+</block>
+</value>
+</block>
+</value>
+<statement name="DO2">
+<block type="variables_set" id="s,WG#z8EZ]7@L+--WGF[">
+<field name="VAR" id="R`arR3TgNGuz8EatkYr;">speed</field>
+<value name="VALUE">
+<block type="math_number" id=";:7$#-.IE)^yyuk=-n_P">
+<field name="NUM">0.3</field>
+</block>
+</value>
+</block>
+</statement>
+</block>
 <block type="procedures_defnoreturn" id="aB@aIF/rbt[jxr6Axc[=" x="-865" y="2042">
 <field name="NAME">climb</field>
 <comment pinned="false" h="80" w="160">Describe this function...</comment>
@@ -5394,6 +5449,9 @@ Note that the reported distance is only useful at very close range, and is impac
 </statement>
 </block>
 </statement>
+</block>
+<block type="math_number" id="N%jvTTO2/`|L!|%@K4LN" x="2430" y="2531">
+<field name="NUM">1</field>
 </block>
 <block type="procedures_defnoreturn" id="lQkAZ@-.L=;nscp^X#U_" x="2651" y="3410">
 <mutation>
