@@ -43,7 +43,7 @@ public class Wrist {
         @Override
         public boolean run(@NonNull TelemetryPacket packet){
             wrist.setDirection(Servo.Direction.FORWARD);
-            wrist.setPosition(0.25);
+            wrist.setPosition(0.7);
             wrist.scaleRange(0, 1);
             //telemetry.addData("wrist", wrist.getPosition());
 
@@ -77,6 +77,21 @@ public class Wrist {
         }
     }
     public Action wristScoring(){
+        return new WristScoring();
+    }
+
+    public class WristUp implements Action{
+        @Override
+        public boolean run(@NonNull TelemetryPacket packet){
+            wrist.setDirection(Servo.Direction.FORWARD);
+            wrist.setPosition(0.21);
+            wrist.scaleRange(0, 1);
+
+            return false;
+        }
+    }
+
+    public Action wristUp(){
         return new WristScoring();
     }
 

@@ -37,8 +37,8 @@ public class Arm {
     public class ArmPickUp implements Action {
         @Override
         public boolean run(@NonNull TelemetryPacket packet){
-            arm.setTargetPosition(2400);
-            arm.setPower(.3);
+            arm.setTargetPosition(2600);
+            arm.setPower(.35);
             return false;
         }
     }

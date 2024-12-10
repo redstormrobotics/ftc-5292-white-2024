@@ -11,7 +11,7 @@ import com.noahbres.meepmeep.roadrunner.entity.RoadRunnerBotEntity;
 
 import sun.font.TrueTypeFont;
 
-public class MeepMeepTesting2 {
+public class MeepMeepTesting4 {
     public static void main(String[] args) {
         //run_demo();
         run_Score_Park_Test();
@@ -56,8 +56,8 @@ public class MeepMeepTesting2 {
                 .build();
         double offset = 90;
         Pose2d beginPose = new Pose2d(14.5, -61.0, Math.toRadians(offset+2.0));
-        Pose2d PoseAutonScore = new Pose2d(-53,-61, Math.toRadians(offset+2.0));
-        Pose2d PoseExtakeSample = new Pose2d(-53+12-7, -61+14, Math.toRadians(offset+2.0));
+        Pose2d PoseAutonScore = new Pose2d(50,-55, Math.toRadians(offset+2.0));
+        Pose2d PoseExtakeSample = new Pose2d(50, -55+12, Math.toRadians(offset+2.0));
         Pose2d PoseIntakeFirstSample = new Pose2d(-53-4,-61+14, Math.toRadians(offset+2.0));
         //MecanumDrive drive = new MecanumDrive(hardwareMap, beginPose);
         //Pose2d Pose2 = new Pose2d(drive.pose.position.x,drive.pose.position.y,drive.pose.heading.imag);
@@ -80,7 +80,7 @@ public class MeepMeepTesting2 {
 
         traj1 = myBot.getDrive().actionBuilder(beginPose)
                 .setTangent(offset+2.0)
-                .splineToLinearHeading(new Pose2d(40,-55,Math.toRadians(offset+2.0)),Math.toRadians(offset+2.0))
+                .strafeToLinearHeading(new Vector2d(30,-24),Math.toRadians(15))
                 .build();
 
         Action Traj2 = myBot.getDrive().actionBuilder(PoseAutonScore)
@@ -89,7 +89,7 @@ public class MeepMeepTesting2 {
 //                .splineToConstantHeading(new Vector2d(-53+12-7, -61+14),Math.toRadians(offset+2.0))
                 //linear heading
                 .setTangent(offset+2.0)
-                .splineToLinearHeading(new Pose2d(-53+12,-61+20,Math.toRadians(offset+2.0)),Math.toRadians(offset+2.0))
+                .splineToConstantHeading(new Vector2d(50,-55+12), Math.toRadians(offset+2.0))
                 .build();
 //
         Action Traj3 = myBot.getDrive().actionBuilder(PoseExtakeSample)
@@ -97,7 +97,7 @@ public class MeepMeepTesting2 {
                 //.splineToConstantHeading(new Vector2d(-53,-61),Math.toRadians(offset+2.0))
                 .setReversed(true)
                 .setTangent(offset+30)
-                .splineToLinearHeading(new Pose2d(-53,-61,Math.toRadians(offset+2.0)),Math.toRadians(offset+2.0))
+                .splineToLinearHeading(new Pose2d(50,-55+12-20,Math.toRadians(offset+2.0)),Math.toRadians(offset+2.0))
                 .build();
 //
         Action Traj4 = myBot.getDrive().actionBuilder(PoseAutonScore)
@@ -120,14 +120,14 @@ public class MeepMeepTesting2 {
 
         myBot.runAction(
                 new SequentialAction(
-                        traj1
+                        traj1,
                         //         robot.lift.liftScoring(),
                         //       robot.arm.armScoring(),
                         //       robot.wrist.wristScoring(),
-                     //   Traj2
+                        Traj2,
                         //       robot.intake.intakeOut(),
                         //      robot.intake.intakeStop(),
-                     //  Traj3
+                       Traj3
                         //         robot.arm.armResting(),
                         //        robot.wrist.wristPickup(),
                         //        robot.lift.liftHome(),

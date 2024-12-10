@@ -73,7 +73,7 @@ public class Intake {
                 init = true;
 
             }
-            if (counter < 200000){
+            if (counter < 100000){
                 counter = counter + 1;
                 return true;
             }
@@ -105,14 +105,22 @@ public class Intake {
 
     public class IntakeSleep implements Action {
         public boolean init = false;
-        double counter = 0;
+        double counter;
+        double wait;
+        public IntakeSleep(){
+            counter = 0;
+            wait = 200000;
+        }
+        public IntakeSleep(double wait){
+            counter = 0;
+            this.wait = wait;
+        }
         @Override
-
         public boolean run(@NonNull TelemetryPacket packet){
             if(!init){
                 init = true;
             }
-            if (counter < 200000){
+            if (counter < wait){
                 counter = counter + 1;
                 return true;
             }
@@ -124,6 +132,9 @@ public class Intake {
     }
     public Action intakeSleep(){
         return new IntakeSleep();
+    }
+    public Action intakeSleep(double wait){
+        return new IntakeSleep(wait);
     }
     public class IntakeSleepLess implements Action {
         public boolean init = false;

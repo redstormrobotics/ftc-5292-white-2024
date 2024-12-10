@@ -15,8 +15,8 @@ import com.acmerobotics.roadrunner.Action;
 
 
 
-@Autonomous(name = "pickupPosition", preselectTeleOp = "White tele-op improved Dual Motors")
-public final class pickupPosition extends LinearOpMode {
+@Autonomous(name = "CloserToBuckets", preselectTeleOp = "White tele-op improved Dual Motors1")
+public final class CloserToBuckets extends LinearOpMode {
     public Robot robot;
 
 
@@ -24,8 +24,8 @@ public final class pickupPosition extends LinearOpMode {
     public void runOpMode() throws InterruptedException {
         double offset = 90;
         Pose2d beginPose = new Pose2d(-38.0, -61.0, Math.toRadians(offset+2.0));
-        Pose2d PoseAutonScore = new Pose2d(-56,-67, Math.toRadians(offset+2.0));
-        Pose2d PoseExtakeSample = new Pose2d(-44, -44, Math.toRadians(offset+2.0));
+        Pose2d PoseAutonScore = new Pose2d(-56-2,-67, Math.toRadians(offset+2.0));
+        Pose2d PoseExtakeSample = new Pose2d(-43.0, -44, Math.toRadians(offset+2.0));
         Pose2d PoseScoreFirstSample = new Pose2d(-53-3-3, -61, Math.toRadians(offset+2.0));
         Pose2d PoseIntakeFirstSample = new Pose2d(-53,-61, Math.toRadians(offset+2.0));
         MecanumDrive drive = new MecanumDrive(hardwareMap, beginPose);
@@ -50,12 +50,12 @@ public final class pickupPosition extends LinearOpMode {
 
         FirstScore = drive.actionBuilder(beginPose)
                 .setTangent(offset+2.0)
-                .splineToLinearHeading(new Pose2d(-56,-67,Math.toRadians(offset+2.0)),Math.toRadians(offset+2.0))
+                .splineToLinearHeading(new Pose2d(-56-2,-67,Math.toRadians(offset+2.0)),Math.toRadians(offset+2.0))
                 .build();
 
         Action IntakeFirstSample = drive.actionBuilder(PoseAutonScore)
                 .setTangent(offset+2.0)
-                .splineToLinearHeading(new Pose2d(-44,-44,Math.toRadians(offset+2.0)),Math.toRadians(offset+2.0))
+                .splineToLinearHeading(new Pose2d(-43.0,-44,Math.toRadians(offset+2.0)),Math.toRadians(offset+2.0))
                 .build();
 
         Action ScoreSecondSample = drive.actionBuilder(PoseExtakeSample)
@@ -92,14 +92,14 @@ public final class pickupPosition extends LinearOpMode {
                         robot.intake.intakeIn(),
                         IntakeFirstSample,
                         robot.intake.intakeSleep(),
-                        robot.intake.intakeStop(),
                         robot.wrist.wristPickup(),
                         robot.arm.armResting(),
+                        robot.intake.intakeStop(),
                         robot.lift.liftScoring(),
                         ScoreSecondSample,
                         robot.arm.armScoring(),
                         robot.wrist.wristScoring(),
-                        robot.intake.intakeSleepLess(),
+                        robot.intake.intakeSleep(200000.0),
                         robot.intake.intakeOut(),
                         robot.intake.intakeStop(),
                         robot.arm.armResting(),
