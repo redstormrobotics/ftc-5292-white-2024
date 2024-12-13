@@ -5,6 +5,7 @@ import static java.lang.Math.toRadians;
 import com.acmerobotics.roadrunner.Pose2d;
 import com.acmerobotics.roadrunner.TranslationalVelConstraint;
 import com.acmerobotics.roadrunner.Vector2d;
+import com.acmerobotics.roadrunner.VelConstraint;
 import com.acmerobotics.roadrunner.ftc.Actions;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
@@ -54,7 +55,7 @@ public final class CloserToBuckets extends LinearOpMode {
 
          FirstScore = drive.actionBuilder(beginPose)
                 .setTangent(offset+2.0)
-                .splineToLinearHeading(PoseAutonScore, Math.toRadians(offset+2.0))
+                .splineToLinearHeading(PoseAutonScore, Math.toRadians(offset+2.0), new TranslationalVelConstraint(30.0))
                 //new Pose2d(-56-2,-67,Math.toRadians(offset+2.0)),Math.toRadians(offset+2.0)
                 .build();
 
@@ -62,10 +63,11 @@ public final class CloserToBuckets extends LinearOpMode {
         Action IntakeFirstSample = drive.actionBuilder(PoseAutonScore)
                 .setTangent(offset+2.0)
                 .strafeToLinearHeading(AngleFirstPickup.position,AngleFirstPickup.heading)
+
                 .build();
 
         Action ScoreSecondSample = drive.actionBuilder(AngleFirstPickup)
-                .strafeToLinearHeading(PoseScoreFirstSample.position, PoseScoreFirstSample.heading)
+                .strafeToLinearHeading(PoseScoreFirstSample.position, PoseScoreFirstSample.heading, new TranslationalVelConstraint(30.0))
                 //new Pose2d(-53-3-3,-61,Math.toRadians(offset+2.0)),Math.toRadians(offset+2.0)
                 .build();
 
@@ -76,7 +78,7 @@ public final class CloserToBuckets extends LinearOpMode {
                 .build();
 
         Action ScoreThirdSample = drive.actionBuilder(PoseIntakeSecondSample)
-                .splineToConstantHeading(new Vector2d(-53-3-3,-61),Math.toRadians(offset+2.0), new TranslationalVelConstraint(30.0))
+                .strafeToLinearHeading(PoseScoreFirstSample.position, PoseScoreFirstSample.heading, new TranslationalVelConstraint(30.0))
                 .build();
 
 
@@ -97,7 +99,7 @@ public final class CloserToBuckets extends LinearOpMode {
                         robot.wrist.wristPickup(),
                         robot.intake.intakeIn(),
                         IntakeFirstSample,
-                        robot.intake.intakeSleep(),
+                        robot.intake.intakeSleep(150000.0),
                         robot.wrist.wristPickup(),
                         robot.arm.armResting(),
                         robot.intake.intakeStop(),
@@ -105,7 +107,7 @@ public final class CloserToBuckets extends LinearOpMode {
                         ScoreSecondSample,
                         robot.arm.armScoring(),
                         robot.wrist.wristScoring(),
-                        robot.intake.intakeSleep(200000.0),
+                        robot.intake.intakeSleep(50000.0),
                         robot.intake.intakeOut(),
                         robot.intake.intakeStop(),
                         robot.arm.armResting(),
@@ -115,13 +117,11 @@ public final class CloserToBuckets extends LinearOpMode {
                         robot.wrist.wristPickup(),
                         robot.intake.intakeIn(),
                         IntakeSecondSample,
-                        robot.intake.intakeSleep(),
+                        robot.intake.intakeSleep(150000.0),
                         robot.intake.intakeStop(),
                         robot.arm.armResting(),
                         robot.wrist.wristScoring(),
-                        robot.intake.intakeSleep(),
-                        robot.intake.intakeSleep()
-
+                        ScoreThirdSample
                 )
         );
     }

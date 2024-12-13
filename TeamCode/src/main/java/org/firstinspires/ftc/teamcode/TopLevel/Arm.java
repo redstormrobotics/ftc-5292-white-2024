@@ -61,7 +61,7 @@ public class Arm {
         public boolean run(@NonNull TelemetryPacket packet){
 
                 arm.setTargetPosition(0);
-                arm.setPower(.65);
+                arm.setPower(1);
                 return false;
 
         }
