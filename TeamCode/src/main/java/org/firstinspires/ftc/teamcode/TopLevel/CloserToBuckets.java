@@ -1,5 +1,7 @@
 package org.firstinspires.ftc.teamcode.TopLevel;
 
+import static java.lang.Math.toRadians;
+
 import com.acmerobotics.roadrunner.Pose2d;
 import com.acmerobotics.roadrunner.TranslationalVelConstraint;
 import com.acmerobotics.roadrunner.Vector2d;
@@ -23,14 +25,17 @@ public final class CloserToBuckets extends LinearOpMode {
     @Override
     public void runOpMode() throws InterruptedException {
         double offset = 90;
-        Pose2d beginPose = new Pose2d(-38.0, -61.0, Math.toRadians(offset+2.0));
-        Pose2d PoseAutonScore = new Pose2d(-56-2,-67, Math.toRadians(offset+2.0));
-        Pose2d PoseExtakeSample = new Pose2d(-43.0, -44, Math.toRadians(offset+2.0));
-        Pose2d PoseScoreFirstSample = new Pose2d(-53-3-3, -61, Math.toRadians(offset+2.0));
-        Pose2d PoseIntakeFirstSample = new Pose2d(-53,-61, Math.toRadians(offset+2.0));
+        Pose2d beginPose = new Pose2d(-38.0, -61.0, toRadians(offset+2.0));
+        Pose2d PoseAutonScore = new Pose2d(-56-2,-67, toRadians(offset+2.0));
+        Pose2d PoseExtakeSample = new Pose2d(-43.0, -44, toRadians(offset+2.0));
+        Pose2d PoseScoreFirstSample = new Pose2d(-53-3-3, -61, toRadians(offset));
+        Pose2d PoseIntakeFirstSample = new Pose2d(-53,-61, toRadians(offset+2.0));
+        Pose2d AngleFirstPickup = new Pose2d(-46+5+7+3.5+2,-44+3.5-13-2+19,toRadians(offset+30.0));
+        Pose2d PoseIntakeSecondSample = new Pose2d(AngleFirstPickup.position.plus(new Vector2d(-10, 0)), AngleFirstPickup.heading);;
         MecanumDrive drive = new MecanumDrive(hardwareMap, beginPose);
         //Pose2d Pose2 = new Pose2d(drive.pose.position.x,drive.pose.position.y,drive.pose.heading.image);
         // Initialize the robot with the hardwareMap
+
         robot = new Robot(hardwareMap);
 
         //robot.intake.intakeInit();
@@ -47,30 +52,31 @@ public final class CloserToBuckets extends LinearOpMode {
         waitForStart();
         Action FirstScore;
 
-
-        FirstScore = drive.actionBuilder(beginPose)
+         FirstScore = drive.actionBuilder(beginPose)
                 .setTangent(offset+2.0)
-                .splineToLinearHeading(new Pose2d(-56-2,-67,Math.toRadians(offset+2.0)),Math.toRadians(offset+2.0))
+                .splineToLinearHeading(PoseAutonScore, Math.toRadians(offset+2.0))
+                //new Pose2d(-56-2,-67,Math.toRadians(offset+2.0)),Math.toRadians(offset+2.0)
                 .build();
+
 
         Action IntakeFirstSample = drive.actionBuilder(PoseAutonScore)
                 .setTangent(offset+2.0)
-                .splineToLinearHeading(new Pose2d(-43.0,-44,Math.toRadians(offset+2.0)),Math.toRadians(offset+2.0))
+                .strafeToLinearHeading(AngleFirstPickup.position,AngleFirstPickup.heading)
                 .build();
 
-        Action ScoreSecondSample = drive.actionBuilder(PoseExtakeSample)
-                .setReversed(true)
-                .setTangent(offset+30)
-                .splineToLinearHeading(new Pose2d(-53-3-3,-61,Math.toRadians(offset+2.0)),Math.toRadians(offset+2.0))
+        Action ScoreSecondSample = drive.actionBuilder(AngleFirstPickup)
+                .strafeToLinearHeading(PoseScoreFirstSample.position, PoseScoreFirstSample.heading)
+                //new Pose2d(-53-3-3,-61,Math.toRadians(offset+2.0)),Math.toRadians(offset+2.0)
                 .build();
 
         Action IntakeSecondSample = drive.actionBuilder(PoseScoreFirstSample)
                 .setTangent(offset+2.0)
-                .splineToLinearHeading(new Pose2d(-46+5,-44+3.5,Math.toRadians(offset+30)),Math.toRadians(offset+2.0), new TranslationalVelConstraint(20.0))
+                .splineToLinearHeading(PoseIntakeSecondSample, PoseIntakeSecondSample.heading)
+                //new Pose2d(-46+5,-44+3.5,Math.toRadians(offset+30)),Math.toRadians(offset+2.0), new TranslationalVelConstraint(20.0)
                 .build();
 
-        Action ScoreThirdSample = drive.actionBuilder(PoseIntakeFirstSample)
-                .splineToConstantHeading(new Vector2d(0,30),Math.toRadians(90), new TranslationalVelConstraint(30.0))
+        Action ScoreThirdSample = drive.actionBuilder(PoseIntakeSecondSample)
+                .splineToConstantHeading(new Vector2d(-53-3-3,-61),Math.toRadians(offset+2.0), new TranslationalVelConstraint(30.0))
                 .build();
 
 

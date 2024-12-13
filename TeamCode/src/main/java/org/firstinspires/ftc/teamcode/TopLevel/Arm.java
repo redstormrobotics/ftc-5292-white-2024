@@ -38,7 +38,7 @@ public class Arm {
         @Override
         public boolean run(@NonNull TelemetryPacket packet){
             arm.setTargetPosition(2600);
-            arm.setPower(.35);
+            arm.setPower(.25);
             return false;
         }
     }

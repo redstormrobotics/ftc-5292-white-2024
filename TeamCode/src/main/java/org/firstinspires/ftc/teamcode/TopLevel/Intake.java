@@ -73,7 +73,7 @@ public class Intake {
                 init = true;
 
             }
-            if (counter < 100000){
+            if (counter < 50000){
                 counter = counter + 1;
                 return true;
             }
