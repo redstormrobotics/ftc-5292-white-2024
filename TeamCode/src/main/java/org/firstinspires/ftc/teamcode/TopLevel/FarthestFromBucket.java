@@ -73,11 +73,12 @@ public final class FarthestFromBucket extends LinearOpMode {
                         robot.arm.armPickUp(),
                         robot.intake.intakeIn(),
                         robot.intake.intakeSleep(),
-                        robot.arm.armResting(),
-                        robot.wrist.wristScoring(),
                         robot.intake.intakeStop(),
-                        robot.wrist.wristUp()
-                      //  Park
+                        robot.arm.armResting(),
+                        robot.intake.intakeSleep(),
+                        robot.wrist.wristScoring(),
+                        robot.wrist.wristUp(),
+                        Park
 
                 )
         );
